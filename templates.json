@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "canva_workspace": {
+    "folder_id": "FAHIrnCFIt4",
+    "folder_url": "https://www.canva.com/folder/FAHIrnCFIt4",
+    "brand_kit_id": "kAGdeHDeWjQ"
+  },
+  "drive_workspace": {
+    "root_folder_id": "1IEic4yEePNCGSPWLXu9T259iwoJ1J2um",
+    "root_folder_url": "https://drive.google.com/drive/folders/1IEic4yEePNCGSPWLXu9T259iwoJ1J2um"
+  },
+  "templates": {
+    "01-tue-adult-training-videos": {
+      "name": "ACL-Adult-Reel-Master",
+      "design_id": null,
+      "design_url": null,
+      "design_type": "your_story",
+      "dimensions": "1080x1920",
+      "audience": "adult",
+      "format": "reel",
+      "schedule": {
+        "day_la": "Tuesday",
+        "drop_pst": "19:30"
+      },
+      "primary_drive_folder": "Training Videos (Adult)",
+      "primary_drive_folder_id": "1Gwk2sCsjy33o-oP4RyNOeFi9mCyGIA5h",
+      "placeholders": {
+        "text": ["technique_name", "instructor_credit"],
+        "media": ["hero_video"]
+      },
+      "placeholder_element_ids": null
+    },
+    "02-thu-kids-images": {
+      "name": "ACL-Kids-Carousel-Master",
+      "design_id": null,
+      "design_url": null,
+      "design_type": "instagram_post",
+      "dimensions": "1080x1350",
+      "audience": "kids",
+      "format": "carousel",
+      "schedule": {
+        "day_la": "Thursday",
+        "drop_pst": "18:00"
+      },
+      "primary_drive_folder": "Kids Images",
+      "primary_drive_folder_id": "1qDvrFTJdbRlDYYMelWuN5KKk04bwpX9J",
+      "placeholders": {
+        "text": ["headline", "subtitle"],
+        "media": ["hero_photo"]
+      },
+      "placeholder_element_ids": null
+    },
+    "03-fri-adult-images": {
+      "name": "ACL-Adult-Photo-Master",
+      "design_id": null,
+      "design_url": null,
+      "design_type": "instagram_post",
+      "dimensions": "1080x1350",
+      "audience": "adult",
+      "format": "photo",
+      "schedule": {
+        "day_la": "Friday",
+        "drop_pst": "20:00"
+      },
+      "primary_drive_folder": "Adult Images",
+      "primary_drive_folder_id": "1gGyaVrg9mMLv1WUXC_xLHz5lLokad_rB",
+      "placeholders": {
+        "text": ["overlay_text"],
+        "media": ["hero_photo"]
+      },
+      "placeholder_element_ids": null
+    },
+    "04-sat-kids-training-videos": {
+      "name": "ACL-Kids-Reel-Master",
+      "design_id": null,
+      "design_url": null,
+      "design_type": "your_story",
+      "dimensions": "1080x1920",
+      "audience": "kids",
+      "format": "reel",
+      "schedule": {
+        "day_la": "Saturday",
+        "drop_pst": "18:30"
+      },
+      "primary_drive_folder": "Training Videos (Kids)",
+      "primary_drive_folder_id": "1UBTq6UZSvW-8xiVAOacOr3ue-Zg4McG2",
+      "placeholders": {
+        "text": ["headline", "cta"],
+        "media": ["hero_video"]
+      },
+      "placeholder_element_ids": null
+    }
+  },
+  "cross_pull_drive_folders": {
+    "testimonials_adults": "1hfxyqZ62IaU983aNtd4w0GvqoJ7Yk8wZ",
+    "testimonials_kids": "1RuU5-58-7EBRzY-mQlvDztFMTMKEvg3h",
+    "promotional_videos": "1YD2y0jpMAD6Z19afxAnLXdxX5LZKz_Jb"
+  }
+}

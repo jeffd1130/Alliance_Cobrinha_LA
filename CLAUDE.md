@@ -124,13 +124,23 @@ Skills use Google Drive MCP tools to copy files from these folders into the matc
 
 ## Master Canva templates
 
-Four master templates will live in Canva (linked from `brand/README.md`):
-- `ACL-Adult-Reel-Master`
-- `ACL-Kids-Carousel-Master`
-- `ACL-Adult-Photo-Master`
-- `ACL-Kids-Reel-Master`
+The system runs on 4 master Canva templates (one per slot). Their IDs and placeholder mappings live in **`templates.json`** at the repo root — this is the source of truth that skills read at runtime.
 
-These get built once in step 3 of the rollout. Each per-post-type skill knows which template to duplicate. Until templates exist, skills should fall back to manual draft mode and tell Jeff which template is missing.
+| Slot | Master template name |
+|------|---------------------|
+| `01-tue-adult-training-videos` | ACL-Adult-Reel-Master |
+| `02-thu-kids-images` | ACL-Kids-Carousel-Master |
+| `03-fri-adult-images` | ACL-Adult-Photo-Master |
+| `04-sat-kids-training-videos` | ACL-Kids-Reel-Master |
+
+All masters live in the **Alliance Cobrinha LA** folder in Canva (`folder_id` is in `templates.json`). The brand kit is auto-applied.
+
+**Full spec, layout requirements, and registration workflow:** see `TEMPLATES.md`.
+
+**When a skill runs:**
+1. Read `templates.json` to get the slot's `design_id` and `placeholder_element_ids`
+2. If `design_id` is null → stop, tell Jeff to register the master per `TEMPLATES.md`
+3. Otherwise duplicate the master, swap media + text into the placeholder elements, export the draft
 
 ---
 

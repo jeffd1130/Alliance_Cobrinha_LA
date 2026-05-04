@@ -74,9 +74,9 @@ Four posts per week, all timed to US PST prime time (6–9 PM PST):
 
 ## What's built so far
 
-- ✅ **Step 1 — Project scaffold + CLAUDE.md** (you are here)
-- ⬜ Step 2 — Brand reference doc
-- ⬜ Step 3 — Canva master templates
+- ✅ **Step 1 — Project scaffold + CLAUDE.md**
+- ⏭ Step 2 — Brand reference doc (deferred; brand kit lives in Canva)
+- 🚧 **Step 3 — Canva master templates** (in progress: starters generated, awaiting Vinz polish)
 - ⬜ Step 4 — Per-post-type skills
 - ⬜ Step 5 — Caption + hashtag library
 - ⬜ Step 6 — Weekly planner skill
