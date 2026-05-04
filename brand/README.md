@@ -1,11 +1,32 @@
 # Brand reference
 
-> Full brand documentation gets built in **step 2** of the rollout. This file is a placeholder so the repo references resolve.
+The Alliance Cobrinha LA visual system lives in **two Canva designs**. Vinz uses both to polish the master templates; skills can pull thumbnails or page exports from them as references when generating captions or briefs.
 
-## Canva brand kit
+## 1. Brand Kit — visual documentation
 
-Live brand kit (colors, fonts, logos, lockups):
-**https://canva.link/ewvd6knjz099y5v**
+> Colors, fonts, logo lockups, and usage rules — laid out across 4 pages.
+
+- **Title:** Cobrinha LA Brand Kit
+- **Design ID:** `DAHHci7o9v0`
+- **Shortlink:** https://canva.link/ewvd6knjz099y5v
+- **Pages:** 4
+- **Role:** source of truth for color hexes, fonts, logo rules
+
+## 2. Style / Mood Board — visual tone reference
+
+> The "Cobrinha LA aesthetic" — what posts should feel like. 11 pages of layout, color, and image-treatment references.
+
+- **Title:** Cobrinha LA
+- **Design ID:** `DAHHq2IUR3o`
+- **Shortlink:** https://canva.link/2vvoq0zsn7vqcny
+- **Pages:** 11 (1080×1350 each)
+- **Role:** visual tone reference; informs Vinz's polish pass on the master templates and the kind of compositions skills should aim for
+
+## Canva brand kit (auto-applied)
+
+A Canva-native brand kit is also configured (auto-applied by the `generate-design` and template tools):
+
+- **Brand Kit ID:** `kAGdeHDeWjQ`
 
 ## Google Drive — shared asset library
 

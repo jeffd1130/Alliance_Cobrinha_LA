@@ -65,6 +65,13 @@ Clean, confident, never hype-y. Manila/Clark style: heavy on photos, short capti
 
 Visual identity lives in Canva — see `brand/README.md` for the brand kit link, color hexes, and font choices.
 
+**Two reference designs you should know about** (registered in `templates.json` under `canva_workspace.reference_designs`):
+
+- **Brand Kit doc** (`DAHHci7o9v0`, 4 pages) — colors, fonts, logo rules. The visual law.
+- **Style/Mood Board** (`DAHHq2IUR3o`, 11 pages) — the "Cobrinha LA aesthetic" — informs what compositions, framing, and tone the masters should aim for.
+
+When generating captions or briefs, skills can reference these design IDs (e.g. surface a thumbnail of a relevant mood board page next to a draft, so reviewers see the target aesthetic).
+
 The aesthetic in short:
 - Black background, neon green/lime accents
 - Bold sans-serif headlines

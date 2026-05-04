@@ -3,7 +3,21 @@
   "canva_workspace": {
     "folder_id": "FAHIrnCFIt4",
     "folder_url": "https://www.canva.com/folder/FAHIrnCFIt4",
-    "brand_kit_id": "kAGdeHDeWjQ"
+    "brand_kit_id": "kAGdeHDeWjQ",
+    "reference_designs": {
+      "brand_kit_doc": {
+        "design_id": "DAHHci7o9v0",
+        "title": "Cobrinha LA Brand Kit",
+        "pages": 4,
+        "role": "Visual brand documentation: colors, fonts, logo rules"
+      },
+      "mood_board": {
+        "design_id": "DAHHq2IUR3o",
+        "title": "Cobrinha LA",
+        "pages": 11,
+        "role": "Style/aesthetic reference for the LA brand voice"
+      }
+    }
   },
   "drive_workspace": {
     "root_folder_id": "1IEic4yEePNCGSPWLXu9T259iwoJ1J2um",
