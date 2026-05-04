@@ -75,12 +75,20 @@ Four posts per week, all timed to US PST prime time (6–9 PM PST):
 ## What's built so far
 
 - ✅ **Step 1 — Project scaffold + CLAUDE.md**
-- ⏭ Step 2 — Brand reference doc (deferred; brand kit lives in Canva)
-- 🚧 **Step 3 — Canva master templates** (in progress: starters generated, awaiting Vinz polish)
-- ⬜ Step 4 — Per-post-type skills
+- ⏭ Step 2 — Brand reference doc (deferred; brand kit + mood board live in Canva, registered)
+- 🔀 **Step 3 — Canva master templates** (deferred to registered-master mode later; running in fresh-generate mode for now)
+- ✅ **Step 4 — Per-post-type skills** (`produce-post`, `daily-check`, `weekly-status` shipped; design automation operational)
 - ⬜ Step 5 — Caption + hashtag library
-- ⬜ Step 6 — Weekly planner skill
+- ⬜ Step 6 — Weekly planner skill (rolled into `daily-check`)
 - ⬜ Step 7 — Approval + posting handoff
+
+## Daily run
+
+Each morning Manila time, run in Claude Code:
+
+> "Daily check"
+
+This finds tomorrow's LA-scheduled post(s), pulls the freshest matching asset from Google Drive, generates a Canva draft with the brand kit applied, and saves the draft URL to `content/<week>/<slot>/drafts/`. Drafts are ready ~1 day before posting for re-hash, edit, or approval.
 
 ---
 

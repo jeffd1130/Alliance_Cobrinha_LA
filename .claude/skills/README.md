@@ -1,45 +1,47 @@
 # Skills
 
-This folder holds Claude Code skills, one per task type. **Skills are built in step 4** of the rollout — this README documents the pattern they will follow.
+Claude Code skills for the Alliance Cobrinha LA weekly Instagram program. One per task type.
 
-## Skill catalog (planned)
+## Skill catalog
 
 | Skill | Purpose | Built? |
 |-------|---------|--------|
-| `adult-reel-tuesday` | Produce Tuesday's Technical Masterclass Reel | ⬜ |
-| `kids-carousel-thursday` | Produce Thursday's Confidence Building Carousel | ⬜ |
-| `adult-photo-friday` | Produce Friday's Lifestyle / Community Photo | ⬜ |
-| `kids-reel-saturday` | Produce Saturday's Summer Camp Action Reel | ⬜ |
-| `weekly-planner` | Set up the next week's content folders, list status | ⬜ |
-| `caption-generator` | Standalone caption + hashtag generator (used by all post skills) | ⬜ |
+| `produce-post` | Workhorse: Drive asset → Canva design → draft URL for one slot | ✅ |
+| `daily-check` | Morning entry point: find tomorrow's post(s) and produce them | ✅ |
+| `weekly-status` | At-a-glance state of the current week's slots | ✅ |
+| `caption-library` | Pillar-aware caption + hashtag generation | ⬜ |
+| `post-approve` | Move approved drafts forward, send PST drop reminder | ⬜ |
 
-## Skill pattern
+## Operating mode
 
-Each skill is a folder containing a `SKILL.md`. Per-post-type skills follow this contract:
+This project currently runs in **fresh-generate** mode (see `templates.json` → `mode`). Every weekly run calls `Canva:generate-design` from scratch with the brand kit. No master templates yet.
 
-**Inputs**
-- `content/<week>/<post-slot>/raw/` — assets from D-3 drop
-- `content/<week>/<post-slot>/brief.md` (optional) — context line(s)
-- The matching Canva master template
+To switch a slot to **registered-master** mode (tighter visual consistency, faster runs):
+1. Polish a master template in Canva (apply the spec from `TEMPLATES.md`)
+2. Set the slot's `design_id` and `design_url` in `templates.json`
+3. The next time `produce-post` runs that slot, it'll detect the master and duplicate-then-swap instead of fresh-generating
 
-**Outputs**
-- A duplicated Canva design with assets swapped in
-- A draft caption (saved to `drafts/caption.md`)
-- A hashtag set (saved to `drafts/hashtags.md`)
-- A draft URL printed for Cobrinha/Dani's D-1 review
+You can mix modes — some slots fresh-generate while others use registered masters.
 
-**Side effects**
-- Updates the post's status (e.g. via a `status.json` in the slot folder)
-- Reminds Jeff of the PST drop time
+## How skills are invoked
 
-## How a skill gets invoked
+Inside Claude Code, talk naturally:
 
-Inside Claude Code, Jeff says something like:
+- *"Make tomorrow's post"* → `daily-check`
+- *"Run Tuesday's reel"* / *"Produce 01-tue-adult-training-videos"* → `produce-post`
+- *"Where are we this week"* → `weekly-status`
+- *"Regenerate Friday's draft"* → `produce-post` (it overwrites)
 
-> "Run adult-reel-tuesday for this week"
+Claude Code will read `CLAUDE.md`, identify the right skill, and run it.
 
-or:
+## Skill contract
 
-> "Make tomorrow's post"
+Every skill in this folder has a `SKILL.md` describing:
+- When to use it
+- Inputs
+- Required tools (and what to do if they're missing)
+- Step-by-step flow
+- Failure modes
+- What it explicitly does NOT do
 
-The second form makes Claude Code consult the schedule in `CLAUDE.md` and pick the matching skill itself.
+Read the matching `SKILL.md` for full detail before invoking.

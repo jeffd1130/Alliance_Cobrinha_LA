@@ -1,5 +1,7 @@
 {
   "version": 1,
+  "mode": "fresh-generate",
+  "_mode_doc": "fresh-generate: skills call Canva:generate-design each run, no master templates. registered-master: skills duplicate a polished master template (set design_id per slot to switch a slot to this mode).",
   "canva_workspace": {
     "folder_id": "FAHIrnCFIt4",
     "folder_url": "https://www.canva.com/folder/FAHIrnCFIt4",
@@ -42,7 +44,8 @@
         "text": ["technique_name", "instructor_credit"],
         "media": ["hero_video"]
       },
-      "placeholder_element_ids": null
+      "placeholder_element_ids": null,
+      "generation_prompt": "Vertical Instagram Reel/Story (9:16, 1080x1920) for Alliance Cobrinha LA, a Brazilian Jiu-Jitsu academy in Los Angeles led by world champion Rubens Cobrinha Charles. Tuesday Technical Masterclass Reel — adult audience, world-class technical jiu-jitsu standards. LAYOUT: Full-bleed hero zone (top ~75%) for jiu-jitsu technique footage. Top text overlay: technique name in bold sans-serif (placeholder TECHNIQUE NAME). Below it, smaller subtitle line (placeholder WITH PROF. COBRINHA). Bottom strip: small ALLIANCE COBRINHA LA credit. Logo lockup, bottom right. AESTHETIC: Black background, neon green/lime accents only, bold sans-serif typography, high-contrast minimal design. Mirrors Alliance Clark/Manila clean restraint. The athlete's movement carries the frame — text overlays must not overwhelm hero footage. No gradients, no decorative shapes."
     },
     "02-thu-kids-images": {
       "name": "ACL-Kids-Carousel-Master",
@@ -62,7 +65,8 @@
         "text": ["headline", "subtitle"],
         "media": ["hero_photo"]
       },
-      "placeholder_element_ids": null
+      "placeholder_element_ids": null,
+      "generation_prompt": "Instagram carousel cover slide (1080x1350, 4:5 portrait) for Alliance Cobrinha LA. Thursday Confidence Building Carousel — kids program, parent-facing audience. LAYOUT: Hero photo zone (top ~60%) for warm joyful kid jiu-jitsu image. Title overlay: warm headline in bold sans-serif (placeholder CONFIDENCE STARTS ON THE MAT). Subtitle line below (placeholder KIDS BJJ — AGES 4-12). Carousel/swipe indicator on right edge to signal multi-slide. Logo lockup, bottom corner. AESTHETIC: Black background, neon green/lime accents, bold sans-serif. Slightly warmer than adult content but still minimal and on-brand. Emphasize safety, joy, character. Never sales-y. Parent-trust-building. No childish design tropes — serious program presented with warmth, not cartoonish."
     },
     "03-fri-adult-images": {
       "name": "ACL-Adult-Photo-Master",
@@ -82,7 +86,8 @@
         "text": ["overlay_text"],
         "media": ["hero_photo"]
       },
-      "placeholder_element_ids": null
+      "placeholder_element_ids": null,
+      "generation_prompt": "Single Instagram photo post (1080x1350, 4:5 portrait) for Alliance Cobrinha LA. Friday Lifestyle/Community Photo — adult audience. Community vibes, post-training group shots, the Cobrinha lifestyle, competition mindset moments. LAYOUT: Full-bleed photo zone dominating the frame. ONE minimal text overlay (positioned bottom OR top, not both) for short reflective caption (placeholder ONE TEAM. ONE STANDARD.). Small Alliance Cobrinha logo lockup, bottom corner, very subtle. Optional black bar or fade if text overlay needs background contrast — keep it minimal. AESTHETIC: Black where visible, neon green/lime accents only. Bold sans-serif typography used sparingly. High-contrast, minimal, restrained. Lifestyle shots feel real and unposed. Text feels like a quiet caption, not a headline competing for attention. Closer to a magazine portrait than an ad."
     },
     "04-sat-kids-training-videos": {
       "name": "ACL-Kids-Reel-Master",
@@ -102,7 +107,8 @@
         "text": ["headline", "cta"],
         "media": ["hero_video"]
       },
-      "placeholder_element_ids": null
+      "placeholder_element_ids": null,
+      "generation_prompt": "Vertical Instagram Reel/Story (9:16, 1080x1920) for Alliance Cobrinha LA. Saturday Summer Camp Action Reel — kids program, parent-facing audience, high-energy. LAYOUT: Full-bleed hero zone (top ~75%) for kids-in-action footage (drilling, sparring, summer camp activities, group fun). Top headline in bold sans-serif (placeholder THE BEST SUMMER SKILL). Subtitle below (placeholder KIDS BJJ SUMMER CAMP). Bottom CTA strip (placeholder ALLIANCE COBRINHA LA — ENROLL NOW). Logo lockup, bottom right. AESTHETIC: Black background, neon green/lime accents only, bold sans-serif. Slightly more energetic than adult Tuesday reel — summer-camp energy but still on-brand and minimal. Joy, action, group fun, character building. No childish design tropes. Optional small lime sun icon near headline."
     }
   },
   "cross_pull_drive_folders": {

@@ -131,23 +131,38 @@ Skills use Google Drive MCP tools to copy files from these folders into the matc
 
 ## Master Canva templates
 
-The system runs on 4 master Canva templates (one per slot). Their IDs and placeholder mappings live in **`templates.json`** at the repo root — this is the source of truth that skills read at runtime.
+The system has two operating modes (see `templates.json` → `mode`):
 
-| Slot | Master template name |
-|------|---------------------|
+**Fresh-generate mode (current default)** — every weekly run calls `Canva:generate-design` from scratch with the brand kit and a per-slot `generation_prompt`. No master templates required. Tradeoff: weekly designs vary slightly week-to-week. Speeds up rollout.
+
+**Registered-master mode** — once a master template is polished and registered (`design_id` set on a slot), `produce-post` duplicates the master and swaps in the week's assets. Tighter visual consistency.
+
+Modes can be mixed per slot. The `produce-post` skill detects which mode each slot is in and behaves accordingly.
+
+| Slot | Master template name (when registered) |
+|------|---------------------------------------|
 | `01-tue-adult-training-videos` | ACL-Adult-Reel-Master |
 | `02-thu-kids-images` | ACL-Kids-Carousel-Master |
 | `03-fri-adult-images` | ACL-Adult-Photo-Master |
 | `04-sat-kids-training-videos` | ACL-Kids-Reel-Master |
 
-All masters live in the **Alliance Cobrinha LA** folder in Canva (`folder_id` is in `templates.json`). The brand kit is auto-applied.
+All Canva designs live in the **Alliance Cobrinha LA** folder (`folder_id` in `templates.json`). The brand kit auto-applies on every generation.
 
-**Full spec, layout requirements, and registration workflow:** see `TEMPLATES.md`.
+**Full spec, per-slot generation prompts, and registration workflow:** see `TEMPLATES.md` and `templates.json`.
 
-**When a skill runs:**
-1. Read `templates.json` to get the slot's `design_id` and `placeholder_element_ids`
-2. If `design_id` is null → stop, tell Jeff to register the master per `TEMPLATES.md`
-3. Otherwise duplicate the master, swap media + text into the placeholder elements, export the draft
+---
+
+## Skills
+
+| Skill | Purpose |
+|-------|---------|
+| `produce-post` | Produce one draft end-to-end: pull Drive asset, generate Canva design, swap content, export URL, save metadata |
+| `daily-check` | Morning entry point: find LA-tomorrow's post(s), invoke `produce-post` for each |
+| `weekly-status` | Read-only check: state of every slot in the current ISO week |
+
+When Jeff says something natural like *"make tomorrow's post"* or *"where are we this week,"* match it to a skill and run it. Don't invent skills that aren't listed above — if there isn't a match, ask Jeff what he wants.
+
+Full skill specs in `.claude/skills/<skill-name>/SKILL.md`.
 
 ---
 
