@@ -62,10 +62,10 @@ Four posts per week, all timed to US PST prime time (6–9 PM PST):
 ├── content/
 │   ├── _template/                  ← Copy this when starting a new week
 │   └── 2026-W##/                   ← One folder per ISO week
-│       ├── 01-tue-adult-reel/
-│       ├── 02-thu-kids-carousel/
-│       ├── 03-fri-adult-photo/
-│       └── 04-sat-kids-reel/
+│       ├── 01-tue-adult-training-videos/
+│       ├── 02-thu-kids-images/
+│       ├── 03-fri-adult-images/
+│       └── 04-sat-kids-training-videos/
 └── docs/
     └── strategy.md                 ← Full strategy reference
 ```

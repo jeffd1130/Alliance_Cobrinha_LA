@@ -80,14 +80,14 @@ The aesthetic in short:
 ```
 content/
   2026-W18/                      ← ISO week (e.g., week 18 of 2026)
-    01-tue-adult-reel/
+    01-tue-adult-training-videos/
       raw/                       ← D-3 drops here
       drafts/                    ← D-2 exports here (plus draft URL)
       approved/                  ← D-1 moves approved here
       brief.md                   ← optional one-paragraph context
-    02-thu-kids-carousel/
-    03-fri-adult-photo/
-    04-sat-kids-reel/
+    02-thu-kids-images/
+    03-fri-adult-images/
+    04-sat-kids-training-videos/
 ```
 
 Week folders use ISO week numbering (`YYYY-W##`). Post slot folders are numbered in posting order with a short slug. Use `content/_template/` as the structure to copy when starting a new week.
@@ -97,7 +97,28 @@ Week folders use ISO week numbering (`YYYY-W##`). Post slot folders are numbered
 ## Tools
 
 - **Canva MCP** — required. Used to duplicate master templates, swap media, and export drafts. If not connected, stop and tell Jeff to connect it before proceeding.
+- **Google Drive MCP** — required. Used to pull source assets from the team's shared Drive into the slot's `raw/` folder. See *Asset library* below.
 - **GitHub** — repo is shared with Vinz; commit briefs, captions, and approval status. Do **not** commit large raw video files (see `.gitignore`).
+
+---
+
+## Asset library (Google Drive)
+
+The team's shared asset library lives in Google Drive (URL in `brand/README.md`). Each weekly slot has a **primary** Drive folder it pulls from, plus access to **cross-pull** folders for special pushes.
+
+| Slot | Primary Drive folder |
+|------|---------------------|
+| `01-tue-adult-training-videos` | Training Videos (Adult) |
+| `02-thu-kids-images` | Kids Images |
+| `03-fri-adult-images` | Adult Images |
+| `04-sat-kids-training-videos` | Training Videos (Kids) |
+
+**Cross-pull folders** (any slot can pull from these when the brief calls for it):
+- *Testimonials (Adults)* — member stories
+- *Testimonials (kids)* — parent stories
+- *Promotional Videos* — campaigns, events, special pushes
+
+Skills use Google Drive MCP tools to copy files from these folders into the matching `content/<week>/<slot>/raw/` location. The skill should tell Jeff which Drive folder it pulled from so he can verify nothing was missed.
 
 ---
 
