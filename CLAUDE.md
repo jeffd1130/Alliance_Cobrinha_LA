@@ -72,13 +72,15 @@ Visual identity lives in Canva — see `brand/README.md` for the brand kit link,
 
 When generating captions or briefs, skills can reference these design IDs (e.g. surface a thumbnail of a relevant mood board page next to a draft, so reviewers see the target aesthetic).
 
-The aesthetic in short:
-- Black background, neon green/lime accents
-- Bold sans-serif headlines
-- High-contrast portraits
-- Minimal — let the athlete or the moment carry the frame
+The aesthetic in short (locked from week-19 reference; see `templates.json` → `theme_signature`):
+- **Black background** dominant
+- **Tan/beige organic blob shapes** as brand-kit decorative accents (in opposing corners)
+- **Large serif headlines** in white, top-left placement
+- **Sans-serif body text** in white, small, near the bottom
+- **Hero media in a framed window**, not full-bleed — leaves breathing room above and below
+- Magazine-editorial feel — restrained, never busy
 
-**Never** stray from the brand kit colors and fonts. If a request would require it, flag it back to Jeff.
+**Never** stray from the brand kit colors and fonts (Canva applies them automatically when `brand_kit_id` is set on generation). If a request would require it, flag it back to Jeff.
 
 ---
 
