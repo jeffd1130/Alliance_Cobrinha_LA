@@ -9,7 +9,7 @@ Claude Code skills for the Alliance Cobrinha LA weekly Instagram program. One pe
 | `produce-post` | Workhorse: Drive asset → Canva design → draft URL for one slot | ✅ |
 | `daily-check` | Morning entry point: find tomorrow's post(s) and produce them | ✅ |
 | `weekly-status` | At-a-glance state of the current week's slots | ✅ |
-| `caption-library` | Pillar-aware caption + hashtag generation | ⬜ |
+| `caption-library` | Pillar-aware caption + hashtag generation | ✅ |
 | `post-approve` | Move approved drafts forward, send PST drop reminder | ⬜ |
 
 ## Operating mode

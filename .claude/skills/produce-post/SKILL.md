@@ -122,9 +122,15 @@ Create `content/<week>/<slot>/drafts/draft.json`:
 }
 ```
 
-Also create stub files for step 5 (caption/hashtag library — not built yet):
-- `content/<week>/<slot>/drafts/caption.md` — single line: `<!-- caption pending — generate via caption-library skill (not yet built) -->`
-- `content/<week>/<slot>/drafts/hashtags.md` — single line: `<!-- hashtags pending — generate via caption-library skill (not yet built) -->`
+Also create stub files for the caption-library skill to fill in (step 9b):
+- `content/<week>/<slot>/drafts/caption.md` — placeholder, will be overwritten by caption-library
+- `content/<week>/<slot>/drafts/hashtags.md` — placeholder, will be overwritten by caption-library
+
+### 9b. Invoke caption-library
+
+After draft.json is saved, invoke the `caption-library` skill for this same slot. This generates the on-brand caption + hashtag set and overwrites the stubs from step 9. See `.claude/skills/caption-library/SKILL.md` for its contract.
+
+If caption-library fails for any reason, log it but continue — the design draft is still usable; Jeff can run caption-library standalone afterward.
 
 ### 10. Report back to Jeff
 

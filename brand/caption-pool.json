@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "_doc": "Hashtag pool and tone notes for the caption-library skill. Edit freely — skills read this at runtime.",
+
+  "voice": {
+    "principles": [
+      "Clean, confident, never hype-y",
+      "Short by default — one CTA max",
+      "Adult: technical when visual is technical; reflective when portrait/lifestyle",
+      "Kids: warm, parent-facing, never sales-y, parent-trust-building",
+      "No emoji walls; one tasteful emoji at most",
+      "Sentence case — no ALL CAPS in captions",
+      "End with a quiet sign-off line, not a hard CTA"
+    ],
+    "anchors": [
+      "One team. One standard.",
+      "World-class jiu-jitsu in LA.",
+      "Where the work shows up."
+    ]
+  },
+
+  "pillars": {
+    "adult_technical": {
+      "slot": "01-tue-adult-training-videos",
+      "audience": "adult BJJ practitioners, scrolling Tuesday evening",
+      "length_lines": "2-4",
+      "tone_notes": [
+        "Name the technique or position when known (from brief.md).",
+        "Lead with the detail that separates it — grip, angle, timing.",
+        "Credit the instructor. Cobrinha or Dani is the usual answer.",
+        "Sign off with the brand line OR a quiet question that invites engagement (no hashtags-as-questions)."
+      ],
+      "examples": [
+        "DLR sweep. The grip break is the difference.\n\nProf. Cobrinha — Tuesday class.",
+        "It's not the entry. It's the angle after the entry.\n\nWith Prof. Dani."
+      ]
+    },
+    "adult_lifestyle": {
+      "slot": "03-fri-adult-images",
+      "audience": "adult community, scrolling Friday evening",
+      "length_lines": "1-3",
+      "tone_notes": [
+        "Magazine-portrait quiet, not ad-copy loud.",
+        "Speak to the work behind the moment, the team, the standard.",
+        "No hard sell. No 'book your trial today.' That's a different post.",
+        "If the photo has multiple people, lean into community language."
+      ],
+      "examples": [
+        "The work between the highlights.",
+        "Same room. Same mats. Different version of you every week.",
+        "One team. One standard."
+      ]
+    },
+    "kids_confidence": {
+      "slot": "02-thu-kids-images",
+      "audience": "parents of kids 4-12, scrolling Thursday evening",
+      "length_lines": "3-5",
+      "tone_notes": [
+        "Lead with the kid's experience — confidence, friendship, focus, small wins.",
+        "Address the parent's worry quietly — safety, structure, character.",
+        "Mention the program/age range once.",
+        "Soft CTA at most ('DM us to book a free trial' is fine; avoid 'limited time' or urgency hacks)."
+      ],
+      "examples": [
+        "Today she earned her first stripe. Last month she was nervous to step on the mat.\n\nKids BJJ at Alliance Cobrinha LA — ages 4-12.",
+        "The mat teaches what classrooms can't: how to fall, get up, and try again.\n\nDM us for a free trial."
+      ]
+    },
+    "kids_summer": {
+      "slot": "04-sat-kids-training-videos",
+      "audience": "parents looking for summer programs, scrolling Saturday evening",
+      "length_lines": "3-5",
+      "tone_notes": [
+        "Lean into the seasonal angle when in season — Beat the Heat, Active Defense, Best Summer Skill.",
+        "Energy is welcome here. Joy and action language.",
+        "Name the program (summer camp, summer pass) and the age range.",
+        "Soft CTA — 'spots filling up' is fine; avoid fake urgency."
+      ],
+      "examples": [
+        "Climate-controlled. Coach-led. The best place for kids when it's 100° outside.\n\nSummer Camp — ages 5-12. DM to enroll.",
+        "The skill they'll use forever. The summer they'll never forget.\n\nKids BJJ Summer Pass — link in bio."
+      ]
+    }
+  },
+
+  "hashtags": {
+    "core": [
+      "AllianceCobrinha",
+      "AllianceCobrinhaLA",
+      "BJJ",
+      "JiuJitsu",
+      "BrazilianJiuJitsu"
+    ],
+    "by_pillar": {
+      "adult_technical": [
+        "BJJTechnique",
+        "JiuJitsuTechnique",
+        "BJJDrills",
+        "BJJLife",
+        "BJJBlackBelt",
+        "WorldClassBJJ",
+        "BJJFlow",
+        "Cobrinha",
+        "BJJDetails",
+        "JiuJitsuFlow"
+      ],
+      "adult_lifestyle": [
+        "BJJCommunity",
+        "JiuJitsuFamily",
+        "TeamCobrinha",
+        "BJJLove",
+        "OssBrother",
+        "LifeOnTheMat",
+        "BJJEveryDay",
+        "BJJLifestyle",
+        "MatLife"
+      ],
+      "kids_confidence": [
+        "KidsBJJ",
+        "KidsJiuJitsu",
+        "FutureChampions",
+        "KidsMartialArts",
+        "BJJKids",
+        "ConfidenceBuilding",
+        "AntiBullying",
+        "CharacterFirst",
+        "KidsBJJLA"
+      ],
+      "kids_summer": [
+        "SummerCamp",
+        "KidsBJJ",
+        "BeatTheHeat",
+        "BestSummerSkill",
+        "SummerActivities",
+        "KidsMartialArts",
+        "FutureChampions",
+        "ActiveDefense",
+        "SummerPass"
+      ]
+    },
+    "location": [
+      "LA",
+      "LosAngeles",
+      "BJJLA",
+      "JiuJitsuLA",
+      "WestsideLA"
+    ],
+    "rotating": [
+      "TrainSmart",
+      "MentalToughness",
+      "BJJJourney",
+      "FlowState",
+      "MatTime",
+      "ShowUp",
+      "DoTheWork"
+    ]
+  },
+
+  "_mix_recipe": {
+    "_doc": "How to assemble a hashtag set per post. Total 8-15 hashtags.",
+    "core": "Always include all 5",
+    "by_pillar": "Pick 4-6 from the pillar's array; rotate which ones based on (week_number % len) so consecutive weeks don't reuse the exact same set",
+    "location": "Pick 2 from location array; rotate similarly",
+    "rotating": "Pick 1-2 from the rotating array; rotate"
+  }
+}

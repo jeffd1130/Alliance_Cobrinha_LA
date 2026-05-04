@@ -1,7 +1,7 @@
 {
   "version": 1,
   "mode": "fresh-generate",
-  "_mode_doc": "fresh-generate: skills call Canva:generate-design each run, no master templates. registered-master: skills duplicate a polished master template (set design_id per slot to switch a slot to this mode).",
+  "_mode_doc": "Operating mode locked to fresh-generate. Decision: 2026-05-04. Skills call Canva:generate-design each run with the brand kit applied; no master templates pursued. Rationale: the registered-master path requires a duplicate-design API (Canva MCP doesn't expose one), plus per-slot element discovery and page mapping — too much added complexity for the marginal consistency gain. Revisit only if multiple weeks of fresh-generate output are visibly inconsistent.",
   "canva_workspace": {
     "folder_id": "FAHIrnCFIt4",
     "folder_url": "https://www.canva.com/folder/FAHIrnCFIt4",

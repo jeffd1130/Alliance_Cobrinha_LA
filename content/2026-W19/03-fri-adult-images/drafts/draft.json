@@ -31,5 +31,12 @@
   },
   "status": "draft-ready",
   "test_run": true,
-  "notes": "First end-to-end test of produce-post skill. Drive search → asset upload → Canva generation → folder move all worked. lh3.googleusercontent.com URL pattern needed instead of drive.google.com/uc."
+  "caption": {
+    "generated_at": "2026-05-04T07:05:00Z",
+    "pillar": "adult_lifestyle",
+    "brief_used": false,
+    "hashtag_count": 14,
+    "hashtag_mix": "5 core + 5 pillar + 2 location + 2 rotating"
+  },
+  "notes": "First end-to-end test of produce-post skill. Drive search → asset upload → Canva generation → folder move all worked. lh3.googleusercontent.com URL pattern needed instead of drive.google.com/uc. Caption + hashtags added via caption-library demo run."
 }
