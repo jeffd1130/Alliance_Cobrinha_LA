@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-05-04T06:35:37Z",
+  "slot": "03-fri-adult-images",
+  "week": "2026-W19",
+  "canva_design_id": "DAHIsVAwhso",
+  "canva_edit_url": "https://www.canva.com/d/IUiSQlPvrzmvNFE",
+  "canva_view_url": "https://www.canva.com/d/YwqHm8htaF_EKDI",
+  "canva_title": "Instagram Post - ONE TEAM. ONE STANDARD.",
+  "source_asset": {
+    "drive_file_id": "1wlbGRoA4DSOIzvLgWGGdmNz4BRRikggl",
+    "drive_file_name": "IMG_4515.JPG",
+    "drive_folder": "Adult Images",
+    "drive_owner": "cobrinhacharles@gmail.com",
+    "modified_time": "2026-04-26T02:47:11.551Z",
+    "canva_asset_id": "MAHIsan6FpU"
+  },
+  "generation": {
+    "mode": "fresh-generate",
+    "brand_kit_id": "kAGdeHDeWjQ",
+    "design_type": "instagram_post",
+    "candidate_count": 4,
+    "candidate_picked_index": 0,
+    "candidate_id_picked": "dg-0651db76-841f-4e7d-9454-2e56f3b85b50",
+    "job_id": "95e29ea0-7d41-4b9b-82ba-aa31db700bc8"
+  },
+  "schedule": {
+    "post_day_la": "Friday",
+    "post_date_la": "2026-05-08",
+    "drop_pst": "20:00",
+    "drop_mla": "11:00 (Sat 2026-05-09)"
+  },
+  "status": "draft-ready",
+  "test_run": true,
+  "notes": "First end-to-end test of produce-post skill. Drive search → asset upload → Canva generation → folder move all worked. lh3.googleusercontent.com URL pattern needed instead of drive.google.com/uc."
+}

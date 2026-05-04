@@ -42,11 +42,16 @@ If any of these aren't available, **stop** and tell Jeff which connector needs t
 1. Check `content/<week>/<slot>/brief.md` — if it names a specific file, use that.
 2. Otherwise call `Google Drive:search_files` with query:
    ```
-   parentId = '<primary_drive_folder_id>' and trashed = false
+   parentId = '<primary_drive_folder_id>'
    ```
-   Sort by `modifiedTime` descending (set `pageSize: 5` and pick the first non-folder file). Skip files modified more than 30 days ago — if all are stale, warn Jeff that the Drive folder may be empty or stale.
-3. Get the file's metadata. You need a publicly accessible URL — call `get_file_permissions` to confirm. If the file isn't link-shared, **stop** and tell Jeff which file needs to be set to "Anyone with link can view."
-4. The public URL is typically `https://drive.google.com/uc?id=<fileId>&export=download` for direct download. Use this for `upload-asset-from-url`.
+   (Note: `trashed` is not a supported field in this Drive MCP; just rely on parentId.)
+   Sort results by `modifiedTime` descending. Pick the newest file. Prefer `image/jpeg` over `image/heif` if the slot is image-based — HEIC works in Canva but JPG is safer. Skip files older than 30 days; if all are stale, warn Jeff.
+3. Get the file's metadata + permissions. Check `get_file_permissions` returns a permission with `type: "anyone"` (any role). If not, **stop** and tell Jeff which file needs link-sharing turned on.
+4. Build the Canva-fetchable URL using Google's content-server pattern:
+   ```
+   https://lh3.googleusercontent.com/d/<file_id>=w2000
+   ```
+   This bypasses Drive's download interstitial that breaks `drive.google.com/uc?id=X&export=download`. The `=w2000` suffix gets a 2000px-wide rendition, which is enough resolution for any IG format. For videos, this URL pattern doesn't work — use a different approach (TODO when we test the reel slots).
 
 ### 4. Upload the asset to Canva
 
