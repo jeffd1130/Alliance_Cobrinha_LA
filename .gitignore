@@ -1,0 +1,41 @@
+# Raw media — keep large files out of git
+content/**/raw/*.mp4
+content/**/raw/*.mov
+content/**/raw/*.MP4
+content/**/raw/*.MOV
+content/**/raw/*.heic
+content/**/raw/*.HEIC
+content/**/raw/*.avi
+content/**/raw/*.AVI
+
+# Exported drafts (rebuild from Canva)
+content/**/drafts/*.png
+content/**/drafts/*.jpg
+content/**/drafts/*.jpeg
+content/**/drafts/*.mp4
+
+# Approved finals — keep these small or out (Canva is source of truth)
+content/**/approved/*.mp4
+content/**/approved/*.MP4
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local config and secrets
+.env
+.env.local
+.claude/cache/
+.claude/.session
+
+# Python (in case scripts get added later)
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+
+# Node (in case)
+node_modules/
