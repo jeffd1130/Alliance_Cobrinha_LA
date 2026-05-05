@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-05-05T00:00:00Z",
+  "slot": "04-sat-kids-training-videos",
+  "week": "2026-W19",
+  "canva_design_id": "DAHIxY8sOLg",
+  "canva_edit_url": "https://www.canva.com/d/wZntDqgmxbLT-8e",
+  "canva_view_url": "https://www.canva.com/d/c5O35l6XVaI70RX",
+  "canva_title": "Your Story - Alliance Cobrinha LA",
+  "generation": {
+    "mode": "fresh-generate",
+    "brand_kit_id": "kAGdeHDeWjQ",
+    "design_type": "your_story",
+    "candidate_count": 4,
+    "candidate_picked_index": 3,
+    "candidate_id_picked": "dg-d7b9f52c-51d8-4fa6-9b3e-e4f4687d6f42",
+    "job_id": "61ad3bf5-5de4-4d55-9255-507cdc525fe7"
+  },
+  "schedule": {
+    "post_day_la": "Saturday",
+    "post_date_la": "2026-05-09",
+    "drop_pst": "18:30",
+    "drop_mla": "09:30 (Sun 2026-05-10)"
+  },
+  "status": "draft-ready",
+  "source_asset": {
+    "raw_assets_pending": true,
+    "drive_folder": "Training Videos (Kids)",
+    "drive_folder_id": "1UBTq6UZSvW-8xiVAOacOr3ue-Zg4McG2"
+  }
+}
