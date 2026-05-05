@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-05-05T00:00:00Z",
+  "slot": "02-thu-kids-images",
+  "week": "2026-W19",
+  "canva_design_id": "DAHIxQLV92U",
+  "canva_edit_url": "https://www.canva.com/d/QGzKXfTVmTDPwPN",
+  "canva_view_url": "https://www.canva.com/d/YroekLxVQCsQcuw",
+  "canva_title": "Instagram Post - CONFIDENCE STARTS ON THE MAT",
+  "generation": {
+    "mode": "fresh-generate",
+    "brand_kit_id": "kAGdeHDeWjQ",
+    "design_type": "instagram_post",
+    "candidate_count": 4,
+    "candidate_picked_index": 3,
+    "candidate_id_picked": "dg-bec0f080-969d-4d0b-905c-85c8f4eb4d29",
+    "job_id": "ae66fc30-387a-44d9-888a-b7e9c1dd561d"
+  },
+  "schedule": {
+    "post_day_la": "Thursday",
+    "post_date_la": "2026-05-07",
+    "drop_pst": "18:00",
+    "drop_mla": "09:00 (Fri 2026-05-08)"
+  },
+  "status": "draft-ready",
+  "source_asset": {
+    "raw_assets_pending": true,
+    "drive_folder": "Kids Images",
+    "drive_folder_id": "1qDvrFTJdbRlDYYMelWuN5KKk04bwpX9J"
+  }
+}
