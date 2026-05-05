@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-05-05T00:00:00Z",
+  "slot": "01-tue-adult-training-videos",
+  "week": "2026-W19",
+  "canva_design_id": "DAHIxVbbSH4",
+  "canva_edit_url": "https://www.canva.com/d/bKtRkkQf_Rvo00N",
+  "canva_view_url": "https://www.canva.com/d/SKX6KrR-vIYUXnO",
+  "canva_title": "Your Story - Alliance Cobrinha LA",
+  "generation": {
+    "mode": "fresh-generate",
+    "brand_kit_id": "kAGdeHDeWjQ",
+    "design_type": "your_story",
+    "candidate_count": 4,
+    "candidate_picked_index": 3,
+    "candidate_id_picked": "dg-d841fc7b-1c91-4b71-a116-d4d5eb21f6c7",
+    "job_id": "50bd2bc3-144c-49c0-b073-afefb002af57"
+  },
+  "schedule": {
+    "post_day_la": "Tuesday",
+    "post_date_la": "2026-05-05",
+    "drop_pst": "19:30",
+    "drop_mla": "10:30 (Wed 2026-05-06)"
+  },
+  "status": "draft-ready",
+  "source_asset": {
+    "raw_assets_pending": true,
+    "drive_folder": "Training Videos (Adult)",
+    "drive_folder_id": "1Gwk2sCsjy33o-oP4RyNOeFi9mCyGIA5h"
+  }
+}
