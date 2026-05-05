@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-05-05T03:30:00Z",
+  "generated_at": "2026-05-05T00:00:00Z",
   "slot": "01-tue-adult-training-videos",
   "week": "2026-W19",
-  "canva_design_id": "DAHIxqfehyI",
-  "canva_edit_url": "https://www.canva.com/d/TzMzmJ1YD1MRsnm",
-  "canva_view_url": "https://www.canva.com/d/13gja_iJTzz2-kA",
-  "canva_title": "Your Story - Alliance Cobrinha LA",
+  "canva_design_id": "DAHIzKoqRI4",
+  "canva_edit_url": "https://www.canva.com/d/BKdCGjyXTIm3u4r",
+  "canva_view_url": "https://www.canva.com/d/qiW9YNWf_b1YAg7",
+  "canva_title": "Your Story - Master Your Jiu-Jitsu Technique",
   "source_asset": {
-    "drive_file_id": "1s46--XYYQ0bjhKF-U9hRxDA3mPAjucqv",
-    "drive_file_name": "1a675658f4c742e0b0ff914e25a80707.mov",
+    "drive_file_id": "1dunIQZpMVbM-WWN68Os8wdxVkeORYaOz",
+    "drive_file_name": "Cobrinha instagram 2 .mov",
     "drive_folder": "Training Videos (Adult)",
     "drive_owner": "cobrinhacharles@gmail.com",
-    "modified_time": "2026-04-23T05:01:00.092Z",
-    "file_size_bytes": 24935204,
+    "modified_time": "2026-04-23T05:01:49.180Z",
+    "file_size_bytes": 121901365,
     "mime_type": "video/quicktime",
-    "canva_asset_id": "VAHIxgbpwgc",
+    "canva_asset_id": "VAHIzFnF0qI",
     "canva_asset_type": "video",
-    "video_duration_seconds": 15,
-    "video_dimensions": "1080x1920"
+    "video_duration_seconds": 34,
+    "video_dimensions": "2160x3840"
   },
   "generation": {
     "mode": "fresh-generate",
@@ -25,8 +25,8 @@
     "design_type": "your_story",
     "candidate_count": 4,
     "candidate_picked_index": 0,
-    "candidate_id_picked": "dg-274731c5-7c3c-4c86-92b7-a3a08e2ee9d2",
-    "job_id": "9779f8b5-1087-472e-828c-4c2ad545d257"
+    "candidate_id_picked": "dg-535e1d20-47a8-4a47-8c78-7dc0016b6281",
+    "job_id": "f5896d4d-25c0-4903-af4d-296322d89b33"
   },
   "schedule": {
     "post_day_la": "Tuesday",
@@ -35,6 +35,10 @@
     "drop_mla": "10:30 (Wed 2026-05-06)"
   },
   "status": "draft-ready",
-  "test_run": true,
-  "notes": "Reel pipeline validation. The video URL strategy was the unknown blocking Tuesday + Saturday slots; now solved. Pattern: drive.usercontent.google.com/download?id=X&export=download&authuser=0&confirm=t. Validated on 25 MB MOV and 91 MB MP4."
+  "caption": {
+    "generated_at": "2026-05-05T00:00:00Z",
+    "pillar": "adult_technical",
+    "brief_used": false,
+    "hashtag_count": 14
+  }
 }
