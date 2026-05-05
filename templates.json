@@ -64,6 +64,18 @@
       "dimensions": "1080x1350",
       "audience": "kids",
       "format": "carousel",
+      "carousel": {
+        "enabled": true,
+        "pattern": "story-arc",
+        "slide_count": 4,
+        "_doc": "Story-arc: 4 slides with different roles. Slide 1 = cover (text-heavy headline, optional small photo). Slides 2-3 = photo-dominant moments. Slide 4 = small CTA / sign-off. Each slide gets its own prompt from carousel.slide_prompts. Pulls 2-3 newest images for the photo-dominant slides; cover and CTA can be text-only or use one shared photo.",
+        "slide_prompts": {
+          "1_cover": "Instagram carousel cover slide (1080x1350, 4:5 portrait) for Alliance Cobrinha LA — Thursday Kids Confidence Carousel. LAYOUT: Black background dominant. Large serif headline 'CONFIDENCE STARTS ON THE MAT' in white, top-left, multi-line, takes up the upper-left quadrant. NO hero photo on this slide — text-dominant cover. Small sans-serif sub-line below the headline (placeholder 'Kids BJJ — Ages 4-12'). Decorative brand-kit organic blob shapes in opposing corners. Small swipe indicator on right edge to signal multi-slide. THEME ANCHOR: black + tan/beige organic accents + serif headlines + sans-serif body. Parent-trust-building, never cartoonish.",
+          "2_photo": "Instagram carousel photo slide (1080x1350, 4:5 portrait) for Alliance Cobrinha LA — Thursday Kids slide 2 of 4. LAYOUT: Black background, hero photo of kid jiu-jitsu moment in framed center window. Tiny sans-serif tag-line at bottom (placeholder 'Discipline. Joy. Friendship.'). Decorative brand-kit organic shapes in opposing corners. THEME ANCHOR: same Alliance Cobrinha LA visual signature. Photo carries the frame.",
+          "3_photo": "Instagram carousel photo slide (1080x1350, 4:5 portrait) for Alliance Cobrinha LA — Thursday Kids slide 3 of 4. LAYOUT: Black background, hero photo of kid jiu-jitsu moment in framed center window. Tiny sans-serif tag-line at bottom (placeholder 'Small wins. Big character.'). Decorative brand-kit organic shapes in opposing corners. THEME ANCHOR: same Alliance Cobrinha LA visual signature. Photo carries the frame.",
+          "4_cta": "Instagram carousel CTA slide (1080x1350, 4:5 portrait) for Alliance Cobrinha LA — Thursday Kids slide 4 of 4. LAYOUT: Black background dominant. Mid-size serif headline in white, centered (placeholder 'COME TRAIN WITH US'). Smaller sans-serif sub-line below (placeholder 'DM us for a free trial — Ages 4-12'). NO hero photo. Decorative brand-kit organic blob shapes in opposing corners. Small Alliance Cobrinha LA logo lockup at the very bottom. THEME ANCHOR: black + tan/beige organic + serif headline + sans-serif body. Restrained, parent-facing, no urgency hacks."
+        }
+      },
       "schedule": {
         "day_la": "Thursday",
         "drop_pst": "18:00"
@@ -84,7 +96,13 @@
       "design_type": "instagram_post",
       "dimensions": "1080x1350",
       "audience": "adult",
-      "format": "photo",
+      "format": "carousel",
+      "carousel": {
+        "enabled": true,
+        "pattern": "photo-gallery",
+        "slide_count": 4,
+        "_doc": "Photo-gallery: same prompt + brand kit, one fresh asset per slide. Pulls N newest images from primary_drive_folder, generates N single-page designs in parallel, merges page 1 of each into one carousel via Canva:merge-designs."
+      },
       "schedule": {
         "day_la": "Friday",
         "drop_pst": "20:00"

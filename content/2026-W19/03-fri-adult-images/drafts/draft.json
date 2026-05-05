@@ -1,27 +1,59 @@
 {
-  "generated_at": "2026-05-04T06:35:37Z",
+  "generated_at": "2026-05-05T03:55:00Z",
   "slot": "03-fri-adult-images",
   "week": "2026-W19",
-  "canva_design_id": "DAHIsVAwhso",
-  "canva_edit_url": "https://www.canva.com/d/IUiSQlPvrzmvNFE",
-  "canva_view_url": "https://www.canva.com/d/YwqHm8htaF_EKDI",
-  "canva_title": "Instagram Post - ONE TEAM. ONE STANDARD.",
-  "source_asset": {
-    "drive_file_id": "1wlbGRoA4DSOIzvLgWGGdmNz4BRRikggl",
-    "drive_file_name": "IMG_4515.JPG",
-    "drive_folder": "Adult Images",
-    "drive_owner": "cobrinhacharles@gmail.com",
-    "modified_time": "2026-04-26T02:47:11.551Z",
-    "canva_asset_id": "MAHIsan6FpU"
-  },
+  "format": "carousel",
+  "carousel_pattern": "photo-gallery",
+  "canva_design_id": "DAHIxqMgEs0",
+  "canva_edit_url": "https://www.canva.com/d/OxWoixKfOHVJ4eK",
+  "canva_view_url": "https://www.canva.com/d/YGJJqVfefjTpU4U",
+  "canva_title": "03-fri-adult-images W19 — Photo Gallery Carousel",
+  "page_count": 4,
+  "slides": [
+    {
+      "index": 1,
+      "source_design_id": "DAHIsVAwhso",
+      "source_asset": {
+        "drive_file_id": "1wlbGRoA4DSOIzvLgWGGdmNz4BRRikggl",
+        "drive_file_name": "IMG_4515.JPG",
+        "canva_asset_id": "MAHIsan6FpU"
+      }
+    },
+    {
+      "index": 2,
+      "source_design_id": "DAHIxm75C8g",
+      "source_asset": {
+        "drive_file_id": "1NG-uon0jTH0Vxzb0scQhHDh6tTreia_U",
+        "drive_file_name": "IMG_4108.jpg",
+        "canva_asset_id": "MAHIxkUM8i0"
+      }
+    },
+    {
+      "index": 3,
+      "source_design_id": "DAHIxu49tck",
+      "source_asset": {
+        "drive_file_id": "1J1vwazAsUvQCo18UPvNbQD5wtdk_7JG3",
+        "drive_file_name": "0c50d09d-3fee-4b3a-a6cb-543e6535f013.JPG",
+        "canva_asset_id": "MAHIxvHmSbI"
+      }
+    },
+    {
+      "index": 4,
+      "source_design_id": "DAHIxjCuaXM",
+      "source_asset": {
+        "drive_file_id": "1TPpx_Ai1Td-TEIRTJTne_2fApKArJ05J",
+        "drive_file_name": "b7a4ec54-0753-44a0-9863-f499ca1fe826.JPG",
+        "canva_asset_id": "MAHIxhUFLys"
+      }
+    }
+  ],
+  "drive_folder": "Adult Images",
+  "drive_owner": "cobrinhacharles@gmail.com",
   "generation": {
     "mode": "fresh-generate",
     "brand_kit_id": "kAGdeHDeWjQ",
     "design_type": "instagram_post",
-    "candidate_count": 4,
-    "candidate_picked_index": 0,
-    "candidate_id_picked": "dg-0651db76-841f-4e7d-9454-2e56f3b85b50",
-    "job_id": "95e29ea0-7d41-4b9b-82ba-aa31db700bc8"
+    "merge_method": "Canva:merge-designs (one op per call, page_numbers=[1] from each source)"
   },
   "schedule": {
     "post_day_la": "Friday",
@@ -36,7 +68,8 @@
     "pillar": "adult_lifestyle",
     "brief_used": false,
     "hashtag_count": 14,
-    "hashtag_mix": "5 core + 5 pillar + 2 location + 2 rotating"
+    "hashtag_mix": "5 core + 5 pillar + 2 location + 2 rotating",
+    "note": "Caption holds — same pillar, same week. Carousel doesn't change the copy strategy."
   },
-  "notes": "First end-to-end test of produce-post skill. Drive search → asset upload → Canva generation → folder move all worked. lh3.googleusercontent.com URL pattern needed instead of drive.google.com/uc. Caption + hashtags added via caption-library demo run."
+  "notes": "First carousel test. Photo-gallery pattern, 4 slides, all from Adult Images Drive folder. merge-designs API has a one-op-per-call constraint not in the schema; required 4 sequential calls (1 create + 3 modify). Generated source designs returned variable page counts (1, 3, 5, 1) — workaround is page_numbers=[1] in the merge insert_pages op."
 }

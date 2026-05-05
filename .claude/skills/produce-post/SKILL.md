@@ -75,19 +75,42 @@ Save the returned `asset_id`.
 
 ### 5. Generate the Canva design
 
+**Branch on `slot.carousel.enabled`:**
+
+#### 5a. Single-slide path (default — videos and any slot without carousel.enabled)
+
 Call `Canva:generate-design`:
 - `brand_kit_id`: from `templates.json["canva_workspace"]["brand_kit_id"]`
 - `design_type`: from the slot config
 - `query`: the slot's `generation_prompt`
-- `asset_ids`: `[<asset_id from step 4>]` — this asks Canva to insert the real asset directly during generation when possible
+- `asset_ids`: `[<asset_id from step 4>]`
 
-Pick the **first candidate** from the response (we're in fresh-generate mode; we trust the brand kit + prompt to land it close enough; Jeff can regenerate if it's off).
+Pick the **first candidate** from the response. Materialize via `Canva:create-design-from-candidate`. Save `design_id` and `design_url`.
 
-### 6. Materialize the candidate
+#### 5b. Carousel path (image slots with `carousel.enabled = true`)
 
-Call `Canva:create-design-from-candidate` with the chosen `candidate_id` and `job_id`. Save the returned `design_id` and `design_url`.
+If `carousel.pattern == "photo-gallery"` (Friday):
 
-### 7. Move the design into the project folder
+1. Pull `carousel.slide_count` newest images from the slot's Drive folder (not just 1). Repeat steps 3 + 4 of this skill for each — building one Canva-fetchable URL per asset and uploading each to Canva. You now have `slide_count` Canva asset IDs.
+2. For each asset, call `generate-design` in parallel using the slot's `generation_prompt` (same prompt for every slide — that's what makes it photo-gallery).
+3. For each generated job, materialize the **first** candidate via `create-design-from-candidate`. You now have `slide_count` materialized designs. Note: Canva's generator sometimes returns multi-page designs when asked for a single Instagram post; in step 4 of merging, always specify `page_numbers: [1]` to take only page 1.
+4. Build the carousel via `Canva:merge-designs`:
+   - First call: `type: "create_new_design"`, `title: "<slot> <week> — Photo Gallery Carousel"`, one `insert_pages` operation taking `page_numbers: [1]` from the first source design. **`merge-designs` only accepts ONE operation per call** despite the array schema; do not batch.
+   - Subsequent calls: `type: "modify_existing_design"`, `design_id: <new carousel ID>`, one `insert_pages` operation per remaining source design.
+5. The final carousel design is the slot's draft. Discard the per-slide source designs (or leave them in the workspace folder; they'll just clutter slightly). The merged design's ID and URL are what go in `draft.json`.
+
+If `carousel.pattern == "story-arc"` (Thursday):
+
+Same flow as photo-gallery, except:
+
+1. Read `carousel.slide_prompts` — a dict mapping slide index → prompt. Slides labeled `*_photo` need a hero asset; slides labeled `*_cover` or `*_cta` are text-only.
+2. Pull only as many fresh images as there are `*_photo` slides (typically 2 for the 4-slide arc). Use the smallest viable count to avoid burning Drive assets.
+3. For text-only slides (`*_cover`, `*_cta`), call `generate-design` with **no `asset_ids`** — the brand kit alone produces the layout. For photo slides, attach one asset_id each.
+4. Order matters: when calling `merge-designs` to assemble the carousel, insert in slide-prompt order (1_cover → 2_photo → 3_photo → 4_cta).
+
+**One operation per merge call.** This is a Canva MCP constraint, not a stylistic choice. Validated 2026-05-05.
+
+### 6. Move the design into the project folder
 
 Call `Canva:move-item-to-folder`:
 - `item_id`: the design ID
@@ -95,7 +118,7 @@ Call `Canva:move-item-to-folder`:
 
 If the move fails, log a warning but continue — the design still exists, just not filed.
 
-### 8. Verify and tune the design (optional, only if asset wasn't inserted in step 5)
+### 7. Verify and tune the design (optional, only if asset wasn't inserted in step 5)
 
 If the generated candidate already used the asset (Canva sometimes does this when `asset_ids` is provided), skip this step.
 
@@ -106,7 +129,7 @@ Otherwise:
 4. Optionally also `find_and_replace_text` if the placeholders from the prompt (e.g. "TECHNIQUE NAME") are still literal — replace them with neutral values like blanks or "—" so Vinz/Jeff can fill them in during the polish pass. **Do not** invent specific technique names; we don't have ground truth.
 5. `Canva:commit-editing-transaction`. If anything fails, `cancel-editing-transaction` and log the issue (the un-tuned draft is still usable).
 
-### 9. Save metadata to the repo
+### 8. Save metadata to the repo
 
 Create `content/<week>/<slot>/drafts/draft.json`:
 
@@ -138,13 +161,13 @@ Also create stub files for the caption-library skill to fill in (step 9b):
 - `content/<week>/<slot>/drafts/caption.md` — placeholder, will be overwritten by caption-library
 - `content/<week>/<slot>/drafts/hashtags.md` — placeholder, will be overwritten by caption-library
 
-### 9b. Invoke caption-library
+### 8b. Invoke caption-library
 
-After draft.json is saved, invoke the `caption-library` skill for this same slot. This generates the on-brand caption + hashtag set and overwrites the stubs from step 9. See `.claude/skills/caption-library/SKILL.md` for its contract.
+After draft.json is saved, invoke the `caption-library` skill for this same slot. This generates the on-brand caption + hashtag set and overwrites the stubs from step 8. See `.claude/skills/caption-library/SKILL.md` for its contract.
 
 If caption-library fails for any reason, log it but continue — the design draft is still usable; Jeff can run caption-library standalone afterward.
 
-### 10. Report back to Jeff
+### 9. Report back to Jeff
 
 Print a concise summary:
 

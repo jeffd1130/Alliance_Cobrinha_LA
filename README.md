@@ -78,9 +78,12 @@ Four posts per week, all timed to US PST prime time (6–9 PM PST):
 - ⏭ Step 2 — Brand reference doc (deferred; brand kit + mood board live in Canva, registered)
 - ❌ Step 3 — Canva master templates (decision 2026-05-04: not pursued; fresh-generate is the operating mode)
 - ✅ **Step 4 — Per-post-type skills** (`produce-post`, `daily-check`, `weekly-status`)
-- ✅ **Step 5 — Caption + hashtag library** (`caption-library` skill + `brand/caption-pool.json` with per-pillar tone notes and rotated hashtag pools)
-- ⬜ Step 6 — Weekly planner skill (rolled into `daily-check`)
-- ⬜ Step 7 — Approval + posting handoff
+- ✅ **Step 5 — Caption + hashtag library** (`caption-library` skill + `brand/caption-pool.json`)
+- ✅ **Step 5.1 — Theme signature locked** from W19 Friday reference
+- ✅ **Step 6 — Video URL strategy solved**, reel slots operational
+- ✅ **Step 6.1 — Carousel support** (photo-gallery validated for Friday; story-arc prompts ready for Thursday)
+- ⬜ Step 7 — Approval + posting handoff (`post-approve` skill)
+- ⬜ Cron / scheduler hookup for true automation
 
 ## Daily run
 

@@ -73,22 +73,23 @@ PST drop times = next-morning Manila. Run `daily-check` at 9 AM Manila → draft
 
 ## Live test results
 
-**Two slots validated end-to-end against real Canva + Drive APIs:**
+**Three full pipeline validations against real Canva + Drive APIs:**
 
-**Friday Adult Photo (image pipeline)** — W19, 2026-05-04
-- Drive search → newest JPG picked → uploaded via `lh3.googleusercontent.com` → generated → moved to folder → caption + hashtags
-- Live: https://www.canva.com/d/IUiSQlPvrzmvNFE
-- Caption: *"The work between the highlights." — Alliance Cobrinha LA*
-- 14 hashtags, week-19 rotation
+**Friday Adult Photo (single image — initial validation)** — W19, 2026-05-04
+- Source: IMG_4515.JPG via `lh3.googleusercontent.com`
+- Result: design `DAHIsVAwhso` (later became slide 1 of the carousel)
 
 **Tuesday Adult Reel (video pipeline)** — W19, 2026-05-05
-- Drive search → newest video picked → uploaded via `drive.usercontent.google.com/download` with `confirm=t` → generated with video asset → moved to folder → caption + hashtags
-- Live: https://www.canva.com/d/TzMzmJ1YD1MRsnm
-- Source: 25 MB MOV, 1080×1920, 15 sec
-- Caption: *"It's not the entry. It's the angle after the entry." — Alliance Cobrinha LA*
-- Pattern also validated on 91 MB MP4 (test 5 in the URL strategy work)
+- Source: 25 MB MOV via `drive.usercontent.google.com/download` with `confirm=t`
+- Result: design `DAHIxqfehyI` (https://www.canva.com/d/TzMzmJ1YD1MRsnm)
+- Video URL pattern also validated on 91 MB MP4
 
-The remaining two slots — Thursday Kids Carousel (image) and Saturday Kids Reel (video) — use the same proven URL patterns and skill flow. Neither is expected to surface new failure modes.
+**Friday Adult Photo (4-slide photo-gallery carousel)** — W19, 2026-05-05
+- 4 fresh JPGs from *Adult Images* uploaded → 4 single-page designs generated → merged via `Canva:merge-designs`
+- Result: design `DAHIxqMgEs0`, 4 pages (https://www.canva.com/d/OxWoixKfOHVJ4eK)
+- Caption + hashtags from earlier still apply (carousel doesn't change copy strategy)
+
+The remaining slot — Saturday Kids Reel (video) — uses the same proven flow as Tuesday. Thursday Kids Carousel (story-arc, prompts ready in templates.json) hasn't been live-tested yet.
 
 ---
 
@@ -134,6 +135,14 @@ The Drive MCP rejects `parentId = 'X' and trashed = false` with "Unsupported que
 
 `Canva:start-editing-transaction` against `DAHHq2IUR3o` (the 11-page mood board) returns a 500-class server error. Worked fine on `DAHIsVAwhso` (the W19 Friday draft). Reason unknown; possibly design size or shared-state related. If you need to inspect the mood board, retry later or use `get-design-pages` for thumbnails instead.
 
+### 4b. `Canva:merge-designs` accepts only ONE operation per call
+
+The schema documents `operations` as an array, but the server enforces *"Only a single operation per merge request is supported."* For multi-source merges (carousels), call `merge-designs` repeatedly: first call uses `type: "create_new_design"` with one `insert_pages`; subsequent calls use `type: "modify_existing_design"` with the new design's ID and one operation each. Validated 2026-05-05 building a 4-page carousel.
+
+### 4c. `generate-design` returns variable page counts for `instagram_post`
+
+Even with identical prompts requesting a single Instagram post, Canva's generator sometimes returns 1, 3, or 5 pages — the AI occasionally produces "Instagram post sets" instead of singles. Doesn't matter for single-slide use (page 1 is what you want anyway), but for carousel builds, **always specify `page_numbers: [1]`** in the merge `insert_pages` op so you take only page 1 of each source.
+
 ### 5. Canva thumbnails won't render in Claude widgets
 
 The widget sandbox blocks `document-export.canva.com` URLs. If you need Jeff to look at design thumbnails, ask him to open the Canva URL in his browser tab — don't try to render them in a `show_widget` call.
@@ -161,9 +170,12 @@ When Jeff (or Cobrinha/Dani) want to influence a specific week's draft — "this
 
 ## What's been validated end-to-end
 
-- ✅ Image slot pipeline (Friday Adult Photo, W19, draft `DAHIsVAwhso`)
-- ✅ Video / reel slot pipeline (Tuesday Adult Reel, W19, draft `DAHIxqfehyI`) — validated on 25 MB MOV and 91 MB MP4
-- ✅ Caption + hashtag generation (both test drafts have full caption.md and hashtags.md)
+- ✅ Image slot pipeline (Friday Adult Photo, single-slide initial — `DAHIsVAwhso`)
+- ✅ Video / reel slot pipeline (Tuesday Adult Reel — `DAHIxqfehyI`); validated on 25 MB MOV and 91 MB MP4
+- ✅ Caption + hashtag generation across all 4 pillars
+- ✅ Photo-gallery carousel (Friday Adult — 4-slide carousel `DAHIxqMgEs0`); validated `merge-designs` flow with one-op-per-call constraint
+- ⬜ Story-arc carousel (Thursday Kids) — prompts and slot config in `templates.json` ready, but not live-tested yet. Same merge-designs flow, plus text-only slides (no `asset_ids` on cover and CTA generations).
+- ⬜ Saturday Kids Reel (video) — uses the same flow as Tuesday Adult Reel; not separately tested.
 - ⬜ `daily-check` running end-to-end as a single command (the components work; needs one full no-touch test)
 - ⬜ `post-approve` flow (not built)
 
