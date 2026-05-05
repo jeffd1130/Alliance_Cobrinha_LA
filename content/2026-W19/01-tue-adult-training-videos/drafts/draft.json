@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-05-05T03:30:00Z",
+  "slot": "01-tue-adult-training-videos",
+  "week": "2026-W19",
+  "canva_design_id": "DAHIxqfehyI",
+  "canva_edit_url": "https://www.canva.com/d/TzMzmJ1YD1MRsnm",
+  "canva_view_url": "https://www.canva.com/d/13gja_iJTzz2-kA",
+  "canva_title": "Your Story - Alliance Cobrinha LA",
+  "source_asset": {
+    "drive_file_id": "1s46--XYYQ0bjhKF-U9hRxDA3mPAjucqv",
+    "drive_file_name": "1a675658f4c742e0b0ff914e25a80707.mov",
+    "drive_folder": "Training Videos (Adult)",
+    "drive_owner": "cobrinhacharles@gmail.com",
+    "modified_time": "2026-04-23T05:01:00.092Z",
+    "file_size_bytes": 24935204,
+    "mime_type": "video/quicktime",
+    "canva_asset_id": "VAHIxgbpwgc",
+    "canva_asset_type": "video",
+    "video_duration_seconds": 15,
+    "video_dimensions": "1080x1920"
+  },
+  "generation": {
+    "mode": "fresh-generate",
+    "brand_kit_id": "kAGdeHDeWjQ",
+    "design_type": "your_story",
+    "candidate_count": 4,
+    "candidate_picked_index": 0,
+    "candidate_id_picked": "dg-274731c5-7c3c-4c86-92b7-a3a08e2ee9d2",
+    "job_id": "9779f8b5-1087-472e-828c-4c2ad545d257"
+  },
+  "schedule": {
+    "post_day_la": "Tuesday",
+    "post_date_la": "2026-05-05",
+    "drop_pst": "19:30",
+    "drop_mla": "10:30 (Wed 2026-05-06)"
+  },
+  "status": "draft-ready",
+  "test_run": true,
+  "notes": "Reel pipeline validation. The video URL strategy was the unknown blocking Tuesday + Saturday slots; now solved. Pattern: drive.usercontent.google.com/download?id=X&export=download&authuser=0&confirm=t. Validated on 25 MB MOV and 91 MB MP4."
+}

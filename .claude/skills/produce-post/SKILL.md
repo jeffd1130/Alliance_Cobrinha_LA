@@ -45,13 +45,25 @@ If any of these aren't available, **stop** and tell Jeff which connector needs t
    parentId = '<primary_drive_folder_id>'
    ```
    (Note: `trashed` is not a supported field in this Drive MCP; just rely on parentId.)
-   Sort results by `modifiedTime` descending. Pick the newest file. Prefer `image/jpeg` over `image/heif` if the slot is image-based — HEIC works in Canva but JPG is safer. Skip files older than 30 days; if all are stale, warn Jeff.
+   Sort results by `modifiedTime` descending. Pick the newest file. For image slots prefer `image/jpeg` over `image/heif`. Skip files older than 30 days; if all are stale, warn Jeff.
 3. Get the file's metadata + permissions. Check `get_file_permissions` returns a permission with `type: "anyone"` (any role). If not, **stop** and tell Jeff which file needs link-sharing turned on.
-4. Build the Canva-fetchable URL using Google's content-server pattern:
+4. Build the Canva-fetchable URL based on the file's mimeType:
+
+   **Images** (`image/*`) — use Google's content-server pattern:
    ```
    https://lh3.googleusercontent.com/d/<file_id>=w2000
    ```
-   This bypasses Drive's download interstitial that breaks `drive.google.com/uc?id=X&export=download`. The `=w2000` suffix gets a 2000px-wide rendition, which is enough resolution for any IG format. For videos, this URL pattern doesn't work — use a different approach (TODO when we test the reel slots).
+   The `=w2000` suffix gets a 2000px-wide rendition. Bypasses Drive's download interstitial that breaks `drive.google.com/uc?id=X&export=download`.
+
+   **Videos** (`video/*`, including `video/mp4` and `video/quicktime`) — use the new Drive download endpoint with `confirm=t`:
+   ```
+   https://drive.usercontent.google.com/download?id=<file_id>&export=download&authuser=0&confirm=t
+   ```
+   Validated up to 91 MB on both `.mp4` and `.mov` files (2026-05-05 test). Canva will return `"type": "video"` in the upload response with width, height, and duration metadata.
+
+   **DO NOT** use the lh3 pattern for videos — Canva will accept the request and silently store a poster-frame **image** instead of the video. If you see `"type": "image"` in the upload response when the source was a video, that's the symptom.
+
+   **DO NOT** use `drive.google.com/uc?id=X&export=download` for either. It returns Google's download-confirmation interstitial (HTTP non-200) for files larger than ~25 MB.
 
 ### 4. Upload the asset to Canva
 

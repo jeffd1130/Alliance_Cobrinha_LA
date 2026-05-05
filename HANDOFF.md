@@ -73,22 +73,22 @@ PST drop times = next-morning Manila. Run `daily-check` at 9 AM Manila → draft
 
 ## Live test results
 
-**Week 2026-W19, Friday Adult Photo slot, 2026-05-04:**
+**Two slots validated end-to-end against real Canva + Drive APIs:**
 
-End-to-end pipeline ran successfully against real Canva + Drive APIs:
+**Friday Adult Photo (image pipeline)** — W19, 2026-05-04
+- Drive search → newest JPG picked → uploaded via `lh3.googleusercontent.com` → generated → moved to folder → caption + hashtags
+- Live: https://www.canva.com/d/IUiSQlPvrzmvNFE
+- Caption: *"The work between the highlights." — Alliance Cobrinha LA*
+- 14 hashtags, week-19 rotation
 
-- Drive search: 10+ files in *Adult Images* folder
-- Asset picked: `IMG_4515.JPG` (newest JPG, 2000×2666, owned by cobrinhacharles@gmail.com)
-- Canva upload: succeeded — asset ID `MAHIsan6FpU`
-- Canva generate-design: 4 candidates, picked first
-- Materialized: design `DAHIsVAwhso`, auto-titled "Instagram Post - ONE TEAM. ONE STANDARD."
-- Filed in folder: `FAHIrnCFIt4` ("Alliance Cobrinha LA")
-- Caption generated: *"The work between the highlights."* — Alliance Cobrinha LA
-- Hashtags generated: 14 tags using week-19 rotation seed (5 core + 5 pillar + 2 location + 2 rotating)
+**Tuesday Adult Reel (video pipeline)** — W19, 2026-05-05
+- Drive search → newest video picked → uploaded via `drive.usercontent.google.com/download` with `confirm=t` → generated with video asset → moved to folder → caption + hashtags
+- Live: https://www.canva.com/d/TzMzmJ1YD1MRsnm
+- Source: 25 MB MOV, 1080×1920, 15 sec
+- Caption: *"It's not the entry. It's the angle after the entry." — Alliance Cobrinha LA*
+- Pattern also validated on 91 MB MP4 (test 5 in the URL strategy work)
 
-Live URL: https://www.canva.com/d/IUiSQlPvrzmvNFE
-
-This output is what the system targets to reproduce week over week.
+The remaining two slots — Thursday Kids Carousel (image) and Saturday Kids Reel (video) — use the same proven URL patterns and skill flow. Neither is expected to surface new failure modes.
 
 ---
 
@@ -112,13 +112,19 @@ The original strategy deck described the brand as "black + neon green/lime + bol
 
 ### 2. Google Drive URL pattern for Canva uploads
 
-`Canva:upload-asset-from-url` cannot fetch from `https://drive.google.com/uc?id=<id>&export=download` — Google serves a download-confirmation interstitial page for that endpoint, returning non-200. **Use this pattern instead:**
+`Canva:upload-asset-from-url` cannot fetch from `https://drive.google.com/uc?id=<id>&export=download` for either images or videos — Google serves a download-confirmation interstitial page for that endpoint, returning non-200. **Use these patterns instead, by mime type:**
 
+**Images:**
 ```
 https://lh3.googleusercontent.com/d/<file_id>=w2000
 ```
+Google's content host. The `=w2000` tail asks for a 2000-px-wide rendition. Image-only — DO NOT use for videos: Canva will silently store a poster-frame **image** instead of the video (you'll see `"type": "image"` in the response).
 
-That's Google's direct content host. Serves the image straight through. The `=w2000` tail asks for a 2000-px-wide rendition. Image-only — videos need a different approach (TBD; the Tue/Sat reel slots aren't tested yet).
+**Videos** (validated 2026-05-05 on 25 MB MOV and 91 MB MP4):
+```
+https://drive.usercontent.google.com/download?id=<file_id>&export=download&authuser=0&confirm=t
+```
+The newer Drive download endpoint. The `confirm=t` parameter bypasses the virus-scan interstitial that kicks in for files >25 MB. Returns `"type": "video"` with `width`, `height`, `duration` metadata.
 
 ### 3. Drive search query — `trashed` is NOT supported
 
@@ -150,9 +156,16 @@ When Jeff (or Cobrinha/Dani) want to influence a specific week's draft — "this
 ## What's left to build
 
 - **Step 7 — `post-approve` skill** — moves draft → approved status, sends a reminder at the PST drop time, helps Jeff prep the actual IG post (copy caption + hashtags to clipboard, etc.). Stubbed, not built.
-- **Reel slot validation** — the image slots (Thu, Fri) are validated; the reel slots (Tue, Sat) need their video-URL strategy figured out before first real run. The `lh3.googleusercontent.com` trick is image-only.
 - **Cron / scheduler hookup** — to make `daily-check` truly automatic instead of Jeff running it manually each morning. Currently a one-line wrapper around `claude code --skill daily-check`; deployment depends on Jeff's OS and where this runs.
 - **Performance feedback loop** — once the system has a few weeks of posts live, there's no automated ingestion of which posts performed well. Eventually worth: a skill that pulls IG insights and tunes the caption pool / generation prompts based on what worked.
+
+## What's been validated end-to-end
+
+- ✅ Image slot pipeline (Friday Adult Photo, W19, draft `DAHIsVAwhso`)
+- ✅ Video / reel slot pipeline (Tuesday Adult Reel, W19, draft `DAHIxqfehyI`) — validated on 25 MB MOV and 91 MB MP4
+- ✅ Caption + hashtag generation (both test drafts have full caption.md and hashtags.md)
+- ⬜ `daily-check` running end-to-end as a single command (the components work; needs one full no-touch test)
+- ⬜ `post-approve` flow (not built)
 
 ---
 
