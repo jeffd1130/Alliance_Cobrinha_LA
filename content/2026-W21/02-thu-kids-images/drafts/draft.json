@@ -1,0 +1,25 @@
+{
+  "week": "2026-W21",
+  "slot": "02-thu-kids-images",
+  "day": "Thursday",
+  "date_la": "2026-05-21",
+  "drop_pst": "18:00",
+  "drop_manila": "09:00 Friday 2026-05-22",
+  "status": "draft",
+  "canva": {
+    "design_id": "DAHKXLwoTHc",
+    "edit_url": "https://www.canva.com/d/ty4umjzPLrI5_eT",
+    "view_url": "https://www.canva.com/d/vVD6s0Mi7qtajZU",
+    "page_count": 4,
+    "format": "carousel",
+    "pattern": "story-arc"
+  },
+  "drive_assets": [
+    {"file_id": "14DeHAZ45iSXJ2BtMK7dF4Jaxkqs6eiAo", "canva_asset_id": "MAHKXMYPkdc", "slide": 2},
+    {"file_id": "1kw0ozG5qG6Vvtq1BzLKIOyqUwZX1AAuN", "canva_asset_id": "MAHKXAEBjAA", "slide": 3}
+  ],
+  "caption": "Today she earned her first stripe. Last month she was nervous to step on the mat.\n\nKids BJJ at Alliance Cobrinha LA — ages 4–12. DM us for a free trial.",
+  "hashtags": "#AllianceCobrinha #AllianceCobrinhaLA #BJJ #JiuJitsu #BrazilianJiuJitsu #KidsMartialArts #BJJKids #ConfidenceBuilding #AntiBullying #LosAngeles #BJJLA #TrainSmart",
+  "preview_png": "docs/assets/thu-kids-s1.png",
+  "generated_at": "2026-05-21T21:46:00+08:00"
+}

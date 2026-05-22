@@ -1,0 +1,27 @@
+{
+  "week": "2026-W21",
+  "slot": "03-fri-adult-images",
+  "day": "Friday",
+  "date_la": "2026-05-22",
+  "drop_pst": "20:00",
+  "drop_manila": "11:00 Saturday 2026-05-23",
+  "status": "draft",
+  "canva": {
+    "design_id": "DAHKXI3CMP8",
+    "edit_url": "https://www.canva.com/d/lirWlb3aPj6jbMy",
+    "view_url": "https://www.canva.com/d/wdhRCEMOK53gd2d",
+    "page_count": 4,
+    "format": "carousel",
+    "pattern": "photo-gallery"
+  },
+  "drive_assets": [
+    {"file_id": "10x5g-Z0q1gS2ngK6IeHeTBBp4elgjxJJ", "canva_asset_id": "MAHKXMnYtec", "slide": 1, "date": "2026-05-21"},
+    {"file_id": "1F-VejFQ-XgKVDGnCmJmsFF2VQ08ZxZhi", "canva_asset_id": "MAHKXHK9G4k", "slide": 2, "date": "2026-05-21"},
+    {"file_id": "10gKUclYRkPanb2h1Nx5gamQjiR70rN5h", "canva_asset_id": "MAHKXDDaNpU", "slide": 3, "date": "2026-05-20"},
+    {"file_id": "13IQDEvKi7cVjBU3dh_ULaJjKD-UwsNNo", "canva_asset_id": "MAHKXGNnG3A", "slide": 4, "date": "2026-05-20"}
+  ],
+  "caption": "The work between the highlights.\n\nOne team. One standard.",
+  "hashtags": "#AllianceCobrinha #AllianceCobrinhaLA #BJJ #JiuJitsu #BrazilianJiuJitsu #BJJLove #OssBrother #LifeOnTheMat #BJJEveryDay #LosAngeles #BJJLA #TrainSmart",
+  "preview_png": "docs/assets/fri-adults-s1.png",
+  "generated_at": "2026-05-21T21:54:00+08:00"
+}

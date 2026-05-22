@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd /Users/jeff/Documents/Claude/alliance-cobrinha-la-social && git add -A && git diff --cached --quiet || (git commit -m \"Auto-sync: $(date '+%Y-%m-%d %H:%M')\" && git push origin main) 2>/dev/null || true",
+            "statusMessage": "Pushing to GitHub..."
+          }
+        ]
+      }
+    ]
+  }
+}

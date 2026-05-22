@@ -1,0 +1,23 @@
+{
+  "week": "2026-W21",
+  "slot": "04-sat-kids-training-videos",
+  "day": "Saturday",
+  "date_la": "2026-05-23",
+  "drop_pst": "18:30",
+  "drop_manila": "09:30 Sunday 2026-05-24",
+  "status": "draft",
+  "canva": {
+    "design_id": "DAHKXHxI8X0",
+    "edit_url": "https://www.canva.com/d/yy4keCDsWwrzkhc",
+    "view_url": "https://www.canva.com/d/pVFRnmxIqvzQIJf",
+    "page_count": 1,
+    "format": "reel"
+  },
+  "drive_assets": [
+    {"file_id": "15dk_ghK0OzQ0XDGqE5QXZdbp91uj7ZY_", "canva_asset_id": "VAHKXJ-4k8E", "type": "video"}
+  ],
+  "caption": "Climate-controlled. Coach-led. The best place for kids when it's 100° outside.\n\nSummer Camp — ages 5–12. DM to enroll.",
+  "hashtags": "#AllianceCobrinha #AllianceCobrinhaLA #BJJ #JiuJitsu #BrazilianJiuJitsu #SummerActivities #KidsMartialArts #FutureChampions #ActiveDefense #LosAngeles #BJJLA #TrainSmart",
+  "preview_png": "docs/assets/sat-kids.png",
+  "generated_at": "2026-05-21T21:52:00+08:00"
+}
