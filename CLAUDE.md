@@ -24,11 +24,22 @@ Your job is to make the **D-3 → D-0 workflow** fast, on-brand, and consistent.
 | Day | Stage | Owner | Action |
 |-----|-------|-------|--------|
 | D-3 | Raw assets | Cobrinha & Dani | Drop photos/videos into `content/<week>/<post-slot>/raw/` |
-| D-2 | Design | Jeff & Vinz | Run the matching skill → produces Canva draft + caption |
-| D-1 | Approval | Cobrinha & Dani | Review draft link, approve or request changes |
+| D-2 | Design | Jeff & Vinz | Run `produce-week` or per-slot skill → Canva draft + caption + approval page updated |
+| D-1 | Approval | Cobrinha & Dani | Review at **`https://jeffd1130.github.io/Alliance_Cobrinha_LA/`** — approve or request changes via Canva edit link |
 | D-0 | Posting | Jeff | Schedule/publish at the PST drop time |
 
-When Jeff invokes a skill, your job is the **D-2 stage**: take what's in `raw/`, duplicate the right Canva master template, swap in the assets, and produce a caption + hashtag set ready for review.
+When Jeff invokes a skill, your job is the **D-2 stage**: pull Drive assets, generate Canva designs with the brand kit, write captions + hashtags, update the GitHub Pages approval site, and push everything to GitHub.
+
+---
+
+## GitHub Pages approval site
+
+The approval site lives at **`https://jeffd1130.github.io/Alliance_Cobrinha_LA/`** — send this URL to Cobrinha & Dani at D-1.
+
+- Source: `docs/index.html` + `docs/assets/*.png` in the `main` branch `/docs` folder
+- Shows all posts for the current week: preview image, caption, hashtags, drop times (PST + Manila), direct Canva edit link
+- Rebuilt by the `update-approval-page` skill after each production run
+- GitHub Pages was enabled 2026-05-21 (API call, main branch, /docs source)
 
 ---
 
@@ -105,29 +116,51 @@ Week folders use ISO week numbering (`YYYY-W##`). Post slot folders are numbered
 
 ## Tools
 
-- **Canva MCP** — required. Used to duplicate master templates, swap media, and export drafts. If not connected, stop and tell Jeff to connect it before proceeding.
-- **Google Drive MCP** — required. Used to pull source assets from the team's shared Drive into the slot's `raw/` folder. See *Asset library* below.
-- **GitHub** — repo is shared with Vinz; commit briefs, captions, and approval status. Do **not** commit large raw video files (see `.gitignore`).
+- **Canva MCP** — required. Used to generate designs, upload assets, merge carousel pages, and export drafts. If not connected, stop and tell Jeff.
+- **Google Drive MCP** — required. Used to pull source assets from the team's shared Drive. See *Asset library* below.
+- **GitHub** — repo `jeffd1130/Alliance_Cobrinha_LA` (updated 2026-05-21 from CobrinhaLA.git). Shared with Vinz. Auto-push hook in `.claude/settings.json` fires on Write/Edit when working in this project directory. Do **not** commit large raw video files (see `.gitignore`).
+- **GitHub Pages** — approval site at `https://jeffd1130.github.io/Alliance_Cobrinha_LA/`. Source: main branch `/docs` folder. Enabled 2026-05-21.
 
 ---
 
 ## Asset library (Google Drive)
 
-The team's shared asset library lives in Google Drive (URL in `brand/README.md`). Each weekly slot has a **primary** Drive folder it pulls from, plus access to **cross-pull** folders for special pushes.
+Root folder ID: `1IEic4yEePNCGSPWLXu9T259iwoJ1J2um`
 
-| Slot | Primary Drive folder |
-|------|---------------------|
-| `01-tue-adult-training-videos` | Training Videos (Adult) |
-| `02-thu-kids-images` | Kids Images |
-| `03-fri-adult-images` | Adult Images |
-| `04-sat-kids-training-videos` | Training Videos (Kids) |
+Each weekly slot has a **primary** Drive folder it pulls from:
 
-**Cross-pull folders** (any slot can pull from these when the brief calls for it):
-- *Testimonials (Adults)* — member stories
-- *Testimonials (kids)* — parent stories
-- *Promotional Videos* — campaigns, events, special pushes
+| Slot | Primary Drive folder | Folder ID | Notes |
+|------|---------------------|-----------|-------|
+| `01-tue-adult-training-videos` | Training Videos (Adult) | `1Gwk2sCsjy33o-oP4RyNOeFi9mCyGIA5h` | 7 videos as of W21 |
+| `02-thu-kids-images` | Kids Images | `1qDvrFTJdbRlDYYMelWuN5KKk04bwpX9J` | 65+ JPGs (UUID names) + 35+ MOV files |
+| `03-fri-adult-images` | Adult Images → **`Image Resources` subfolder** | `1lhVTu2tZ9Tgs3ZYFZnTC1MqJApldro1K` | 50+ JPGs, actively updated |
+| `04-sat-kids-training-videos` | Training Videos (Kids) | `1UBTq6UZSvW-8xiVAOacOr3ue-Zg4McG2` | Has MP4 files — was thought empty but is not |
 
-Skills use Google Drive MCP tools to copy files from these folders into the matching `content/<week>/<slot>/raw/` location. The skill should tell Jeff which Drive folder it pulled from so he can verify nothing was missed.
+**Cross-pull folders:**
+- Testimonials (Adults): `1hfxyqZ62IaU983aNtd4w0GvqoJ7Yk8wZ`
+- Testimonials (kids): `1RuU5-58-7EBRzY-mQlvDztFMTMKEvg3h`
+- Promotional Videos: `1YD2y0jpMAD6Z19afxAnLXdxX5LZKz_Jb`
+
+### Drive URL patterns (validated W21)
+
+**Images** (`image/jpeg`, `image/heic`):
+```
+https://lh3.googleusercontent.com/d/<FILE_ID>=w2000
+```
+
+**Videos** (`video/mp4`, `video/quicktime`):
+```
+https://drive.usercontent.google.com/download?id=<FILE_ID>&export=download&authuser=0&confirm=t
+```
+
+Do NOT use `drive.google.com/uc?id=X&export=download` (breaks on files >25 MB). Do NOT use the lh3 URL for videos — Canva silently stores a poster frame instead.
+
+### Asset selection tips (from W21)
+
+- **Kids Images**: files have UUID names (e.g. `f6ebb480...cd06.JPG`). No description in name. **Pick by file size — larger = better quality image.** Target files >400 KB.
+- **Adult Images**: actual photos live in the `Image Resources` subfolder (`1lhVTu2tZ9Tgs3ZYFZnTC1MqJApldro1K`), not the root `Adult Images` folder.
+- **Training Videos (Kids)**: the folder is not empty — contains MP4 files. Prefer MP4 over MOV when available (smaller, faster to upload).
+- **Kids Images (for Saturday reel fallback)**: if Training Videos (Kids) is empty, use MOV files from Kids Images folder. Sort by size and pick smallest viable (target <50 MB for Canva compatibility).
 
 ---
 
@@ -156,13 +189,16 @@ All Canva designs live in the **Alliance Cobrinha LA** folder (`folder_id` in `t
 
 ## Skills
 
-| Skill | Purpose |
-|-------|---------|
-| `produce-post` | Produce one draft end-to-end: pull Drive asset, generate Canva design, swap content, export URL, save metadata |
-| `daily-check` | Morning entry point: find LA-tomorrow's post(s), invoke `produce-post` for each |
-| `weekly-status` | Read-only check: state of every slot in the current ISO week |
+| Skill | Trigger phrases | Purpose |
+|-------|----------------|---------|
+| `produce-post` | "make Tuesday's post," "redo Friday's draft" | Produce ONE draft end-to-end for a specific slot |
+| `daily-check` | "daily check," "morning check," "what's due tomorrow" | Find LA-tomorrow's post(s), invoke `produce-post`, update approval page |
+| `produce-week` | "produce this week," "make all posts," "run the week" | Produce ALL remaining drafts for the current week, update approval page, push to GitHub |
+| `update-approval-page` | "update the approval page," "refresh the review site" | Rebuild `docs/index.html` from current draft.json files, export previews, push to GitHub |
+| `weekly-status` | "weekly status," "where are we," "what's pending" | Read-only check: state of every slot in the current ISO week |
+| `caption-library` | "redo the caption for Friday," "regenerate hashtags" | Regenerate caption + hashtags for one slot without touching the design |
 
-When Jeff says something natural like *"make tomorrow's post"* or *"where are we this week,"* match it to a skill and run it. Don't invent skills that aren't listed above — if there isn't a match, ask Jeff what he wants.
+When Jeff says something natural like *"make tomorrow's post"* or *"where are we this week,"* match it to a skill and run it.
 
 Full skill specs in `.claude/skills/<skill-name>/SKILL.md`.
 

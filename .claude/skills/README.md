@@ -8,6 +8,8 @@ Claude Code skills for the Alliance Cobrinha LA weekly Instagram program. One pe
 |-------|---------|--------|
 | `produce-post` | Workhorse: Drive asset → Canva design → draft URL for one slot | ✅ |
 | `daily-check` | Morning entry point: find tomorrow's post(s) and produce them | ✅ |
+| `produce-week` | Run all remaining slots for the week, then update the approval page | ✅ |
+| `update-approval-page` | Rebuild GitHub Pages review site from current draft.json files | ✅ |
 | `weekly-status` | At-a-glance state of the current week's slots | ✅ |
 | `caption-library` | Pillar-aware caption + hashtag generation | ✅ |
 | `post-approve` | Move approved drafts forward, send PST drop reminder | ⬜ |
@@ -29,6 +31,8 @@ Inside Claude Code, talk naturally:
 
 - *"Make tomorrow's post"* → `daily-check`
 - *"Run Tuesday's reel"* / *"Produce 01-tue-adult-training-videos"* → `produce-post`
+- *"Produce this week"* / *"Make all posts"* → `produce-week`
+- *"Update the approval page"* / *"Refresh the review site"* → `update-approval-page`
 - *"Where are we this week"* → `weekly-status`
 - *"Regenerate Friday's draft"* → `produce-post` (it overwrites)
 

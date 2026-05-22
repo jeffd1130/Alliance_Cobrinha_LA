@@ -46,6 +46,11 @@ If any of these aren't available, **stop** and tell Jeff which connector needs t
    ```
    (Note: `trashed` is not a supported field in this Drive MCP; just rely on parentId.)
    Sort results by `modifiedTime` descending. Pick the newest file. For image slots prefer `image/jpeg` over `image/heif`. Skip files older than 30 days; if all are stale, warn Jeff.
+
+   **Slot-specific asset notes (validated W21):**
+   - **`03-fri-adult-images` (Friday Adult)**: Actual photos live in the `Image Resources` subfolder (`1lhVTu2tZ9Tgs3ZYFZnTC1MqJApldro1K`), NOT the root Adult Images folder. The `primary_drive_folder_id` in `templates.json` already points to this subfolder — do not search the parent.
+   - **`02-thu-kids-images` (Thursday Kids)**: Files have UUID-format names (e.g. `f6ebb480...cd06.JPG`) with no descriptive content. **Pick by file size — larger files = better quality.** Target files >400 KB; skip anything under 100 KB.
+   - **`04-sat-kids-training-videos` (Saturday Kids Reel)**: Folder is NOT empty despite earlier audits suggesting otherwise. Contains MP4 files. Prefer `.mp4` over `.mov` when both are present (smaller, faster Canva upload). If the folder appears empty, re-run the search — the Drive MCP occasionally misses files on first query.
 3. Get the file's metadata + permissions. Check `get_file_permissions` returns a permission with `type: "anyone"` (any role). If not, **stop** and tell Jeff which file needs link-sharing turned on.
 4. Build the Canva-fetchable URL based on the file's mimeType:
 

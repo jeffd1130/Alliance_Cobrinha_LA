@@ -15,7 +15,8 @@ Run once per day (manually each morning, or by a scheduled task). Finds posts du
 3. **For each matching slot:**
    - Skip if a draft already exists (`content/<current-week>/<slot>/drafts/draft.json` is present and `status` is `draft-ready` or `approved`). Tell Jeff: "Tuesday already has a draft ready — skipping. Use produce-post directly to regenerate."
    - Otherwise invoke `produce-post` for that slot.
-4. **Reports back.** Summary of every draft made or skipped, with Canva URLs.
+4. **After all drafts are produced**, invoke `update-approval-page` to rebuild `docs/index.html` and push to GitHub.
+5. **Reports back.** Summary of every draft made or skipped, Canva URLs, and the approval page link.
 
 ## Edge cases
 
