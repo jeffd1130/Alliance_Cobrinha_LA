@@ -118,8 +118,8 @@ Week folders use ISO week numbering (`YYYY-W##`). Post slot folders are numbered
 
 - **Canva MCP** — required. Used to generate designs, upload assets, merge carousel pages, and export drafts. If not connected, stop and tell Jeff.
 - **Google Drive MCP** — required. Used to pull source assets from the team's shared Drive. See *Asset library* below.
-- **GitHub** — repo `jeffd1130/Alliance_Cobrinha_LA` (updated 2026-05-21 from CobrinhaLA.git). Shared with Vinz. Auto-push hook in `.claude/settings.json` fires on Write/Edit when working in this project directory. Do **not** commit large raw video files (see `.gitignore`).
-- **GitHub Pages** — approval site at `https://jeffd1130.github.io/Alliance_Cobrinha_LA/`. Source: main branch `/docs` folder. Enabled 2026-05-21.
+- **GitHub** — repo `jeffd1130/Alliance_Cobrinha_LA` (updated 2026-05-21 from CobrinhaLA.git). Shared with Vinz. Auto-push hook in `.claude/settings.json` fires on Write/Edit **only when Claude Code is opened from this project directory** (`cd ~/Documents/Claude/alliance-cobrinha-la-social && claude`). If opened from another directory, push manually. Do **not** commit large raw video files (see `.gitignore`).
+- **GitHub Pages** — approval site at `https://jeffd1130.github.io/Alliance_Cobrinha_LA/`. Source: main branch `/docs` folder. Enabled 2026-05-21. Changes go live ~1–2 min after push.
 
 ---
 
@@ -167,6 +167,13 @@ Do NOT use `drive.google.com/uc?id=X&export=download` (breaks on files >25 MB). 
 ## Master Canva templates
 
 The system has two operating modes (see `templates.json` → `mode`):
+
+**W21 is the first validated full production run** (2026-05-21). Canva design IDs from W21 serve as working references:
+| Slot | W21 Design ID | Edit URL |
+|------|--------------|----------|
+| `02-thu-kids-images` | `DAHKXLwoTHc` | `canva.com/d/ty4umjzPLrI5_eT` |
+| `03-fri-adult-images` | `DAHKXI3CMP8` | `canva.com/d/lirWlb3aPj6jbMy` |
+| `04-sat-kids-training-videos` | `DAHKXHxI8X0` | `canva.com/d/yy4keCDsWwrzkhc` |
 
 **Fresh-generate mode (current default)** — every weekly run calls `Canva:generate-design` from scratch with the brand kit and a per-slot `generation_prompt`. No master templates required. Tradeoff: weekly designs vary slightly week-to-week. Speeds up rollout.
 
@@ -237,3 +244,5 @@ Full skill specs in `.claude/skills/<skill-name>/SKILL.md`.
 - Brand reference: `brand/README.md`
 - Skill catalog: `.claude/skills/README.md`
 - Team-facing README: `README.md`
+- W21 session notes (PDF-ready): `docs/session-notes-W21.html`
+- Claude Code getting started guide: `~/Documents/Claude/Claude Code — Getting Started Guide.html`
