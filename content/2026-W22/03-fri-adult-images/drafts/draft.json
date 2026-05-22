@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-05-22T15:10:00-07:00",
+  "slot": "03-fri-adult-images",
+  "week": "2026-W22",
+  "canva_design_id": "DAHKapYkJZ8",
+  "canva_edit_url": "https://www.canva.com/d/609XiF7T6DFHsTi",
+  "source_asset": {
+    "drive_file_id": "1OefXTtmlYmBeo8gw_TBWDtM5xpmXnj0a",
+    "drive_file_name": "photo_2026-05-22_14-37-46.jpg",
+    "drive_folder": "Adult Images / Image Resources",
+    "slide_file_ids": [
+      "1OefXTtmlYmBeo8gw_TBWDtM5xpmXnj0a",
+      "1484c4SOrxbZzMUSr5gO-tY6eu2mnJo4P",
+      "10x5g-Z0q1gS2ngK6IeHeTBBp4elgjxJJ",
+      "1F-VejFQ-XgKVDGnCmJmsFF2VQ08ZxZhi"
+    ]
+  },
+  "generation_mode": "fresh-generate",
+  "carousel": {
+    "pattern": "photo-gallery",
+    "slide_count": 4,
+    "slide_source_design_ids": {
+      "1": "DAHKatVuA-c",
+      "2": "DAHKai2DhAY",
+      "3": "DAHKakmDBwU",
+      "4": "DAHKajU9Xjk"
+    }
+  },
+  "candidate_count": 4,
+  "candidate_picked_index": 0,
+  "schedule": {
+    "post_day_la": "Friday",
+    "drop_pst": "20:00",
+    "drop_mla": "11:00 Sat May 30"
+  },
+  "status": "draft-ready"
+}

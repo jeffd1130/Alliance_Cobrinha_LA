@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-05-22T15:10:00-07:00",
+  "slot": "02-thu-kids-images",
+  "week": "2026-W22",
+  "canva_design_id": "DAHKakmdeC4",
+  "canva_edit_url": "https://www.canva.com/d/ZPVvT8TGeU21vPv",
+  "source_asset": {
+    "drive_file_id": "1WDsUlxVMWaiCeRjQzrhQ5SI3GwoK3Spx",
+    "drive_file_name": "d93da9b1-68d1-47db-8dd8-b057219ff134.JPG",
+    "drive_folder": "Kids Images",
+    "slide2_file_id": "1WDsUlxVMWaiCeRjQzrhQ5SI3GwoK3Spx",
+    "slide3_file_id": "1NOUuGGHkDxNVUaOBFKYe8rvDTHqMPNc8"
+  },
+  "generation_mode": "fresh-generate",
+  "carousel": {
+    "pattern": "story-arc",
+    "slide_count": 4,
+    "slide_source_design_ids": {
+      "1_cover": "DAHKauYUGW8",
+      "2_photo": "DAHKasX98QU",
+      "3_photo": "DAHKakk4vLM",
+      "4_cta": "DAHKaq_Yx4M"
+    }
+  },
+  "candidate_count": 4,
+  "candidate_picked_index": 0,
+  "schedule": {
+    "post_day_la": "Thursday",
+    "drop_pst": "18:00",
+    "drop_mla": "09:00 Fri May 29"
+  },
+  "status": "draft-ready"
+}

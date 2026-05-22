@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-05-22T15:10:00-07:00",
+  "slot": "01-tue-adult-training-videos",
+  "week": "2026-W22",
+  "canva_design_id": "DAHKaummd4s",
+  "canva_edit_url": "https://www.canva.com/d/c0P0kh8i9bGVoiz",
+  "source_asset": {
+    "drive_file_id": "1N3v04qfa-cBhl6lMfBugI0mKa2bHvcM-",
+    "drive_file_name": "0ceeeb61f12a4918870455b135112c95.mp4",
+    "drive_folder": "Training Videos (Adult)"
+  },
+  "generation_mode": "fresh-generate",
+  "candidate_count": 4,
+  "candidate_picked_index": 0,
+  "schedule": {
+    "post_day_la": "Tuesday",
+    "drop_pst": "19:30",
+    "drop_mla": "10:30 Wed May 27"
+  },
+  "status": "draft-ready"
+}

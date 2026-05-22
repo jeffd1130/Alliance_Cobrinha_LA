@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-05-22T15:10:00-07:00",
+  "slot": "04-sat-kids-training-videos",
+  "week": "2026-W22",
+  "canva_design_id": "DAHKajxG2F0",
+  "canva_edit_url": "https://www.canva.com/d/hyhl-SzpM6kS7Fk",
+  "source_asset": {
+    "drive_file_id": "15dk_ghK0OzQ0XDGqE5QXZdbp91uj7ZY_",
+    "drive_file_name": "Copy of video_2026-05-21_09-40-59.mp4",
+    "drive_folder": "Training Videos (Kids)"
+  },
+  "generation_mode": "fresh-generate",
+  "candidate_count": 4,
+  "candidate_picked_index": 0,
+  "schedule": {
+    "post_day_la": "Saturday",
+    "drop_pst": "18:30",
+    "drop_mla": "09:30 Sun May 31"
+  },
+  "status": "draft-ready"
+}
