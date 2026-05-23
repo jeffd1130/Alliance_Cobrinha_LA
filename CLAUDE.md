@@ -118,6 +118,7 @@ Week folders use ISO week numbering (`YYYY-W##`). Post slot folders are numbered
 
 - **Canva MCP** — required. Used to generate designs, upload assets, merge carousel pages, and export drafts. If not connected, stop and tell Jeff.
 - **Google Drive MCP** — required. Used to pull source assets from the team's shared Drive. See *Asset library* below.
+- **Telegram MCP** — `telegram-mcp-bot` configured globally in `~/.claude.json`. Bot: `@cobrinhaLAdesignsbot`. Approver handle: `@jeffd321`. Use to send D-1 approval message with the GitHub Pages URL. Recipient must message the bot first to enable replies (get chat ID via `get_updates`).
 - **GitHub** — repo `jeffd1130/Alliance_Cobrinha_LA` (updated 2026-05-21 from CobrinhaLA.git). Shared with Vinz. Auto-push hook in `.claude/settings.json` fires on Write/Edit **only when Claude Code is opened from this project directory** (`cd ~/Documents/Claude/alliance-cobrinha-la-social && claude`). If opened from another directory, push manually. Do **not** commit large raw video files (see `.gitignore`).
 - **GitHub Pages** — approval site at `https://jeffd1130.github.io/Alliance_Cobrinha_LA/`. Source: main branch `/docs` folder. Enabled 2026-05-21. Changes go live ~1–2 min after push.
 
@@ -219,6 +220,7 @@ Full skill specs in `.claude/skills/<skill-name>/SKILL.md`.
 4. **Surface the PST time.** Every draft output should restate the target drop time so Jeff doesn't have to re-check.
 5. **Manila ↔ LA awareness.** When mentioning deadlines, give both PST and Manila time.
 6. **Don't post.** You produce drafts. Posting is always Jeff's call.
+7. **Parallel agents always.** For any multi-slot or multi-step task, spin independent subtasks as concurrent agents in a single message. `produce-week` should run slots 02, 03, 04 in parallel then merge results — not sequentially. This is the default execution model.
 
 ---
 
