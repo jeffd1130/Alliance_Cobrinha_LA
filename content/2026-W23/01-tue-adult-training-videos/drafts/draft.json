@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-05-23T00:00:00+08:00",
+  "slot": "01-tue-adult-training-videos",
+  "week": "2026-W23",
+  "canva_design_id": "DAHIzKoqRI4",
+  "canva_edit_url": "https://www.canva.com/d/BKdCGjyXTIm3u4r",
+  "source_week": "2026-W19",
+  "reuse_note": "W19 design reused for W23",
+  "generation_mode": "reuse",
+  "schedule": {
+    "post_day_la": "Tuesday",
+    "drop_pst": "19:30",
+    "drop_mla": "10:30 Wed Jun 3"
+  },
+  "status": "draft-ready"
+}

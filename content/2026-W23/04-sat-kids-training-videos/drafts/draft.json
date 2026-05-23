@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-05-23T00:00:00+08:00",
+  "slot": "04-sat-kids-training-videos",
+  "week": "2026-W23",
+  "canva_design_id": "DAHIxY8sOLg",
+  "canva_edit_url": "https://www.canva.com/d/wZntDqgmxbLT-8e",
+  "source_week": "2026-W19",
+  "reuse_note": "W19 design + W21 caption for W23",
+  "generation_mode": "reuse",
+  "schedule": {
+    "post_day_la": "Saturday",
+    "drop_pst": "18:30",
+    "drop_mla": "09:30 Sun Jun 7"
+  },
+  "status": "draft-ready"
+}

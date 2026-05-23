@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-05-23T00:00:00+08:00",
+  "slot": "03-fri-adult-images",
+  "week": "2026-W23",
+  "canva_design_id": "DAHIxqMgEs0",
+  "canva_edit_url": "https://www.canva.com/d/OxWoixKfOHVJ4eK",
+  "source_week": "2026-W19",
+  "reuse_note": "W19 design + W21 caption for W23",
+  "generation_mode": "reuse",
+  "schedule": {
+    "post_day_la": "Friday",
+    "drop_pst": "20:00",
+    "drop_mla": "11:00 Sat Jun 6"
+  },
+  "status": "draft-ready"
+}
