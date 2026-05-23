@@ -1,120 +1,172 @@
-# caption-library
+# caption-library — Alliance Cobrinha LA
 
-Generate an on-brand caption and a rotated hashtag set for one weekly post draft. Reads from `brand/caption-pool.json` for tone notes, examples, and the hashtag pool. Saves output to `content/<week>/<slot>/drafts/caption.md` and `hashtags.md`.
+Generate an on-brand caption and rotated hashtag set for one Alliance Cobrinha LA weekly post. Reads pillar voice rules, uses W21 captions as the validated baseline, and saves output to the slot's `drafts/` folder.
+
+---
+
+## Project constants
+
+| Key | Value |
+|-----|-------|
+| Project dir | `/Users/jeff/Documents/Claude/alliance-cobrinha-la-social` |
+| Caption pool | `brand/caption-pool.json` |
+
+---
+
+## The 4 pillars
+
+| Slot | Pillar | Audience | Tone |
+|------|--------|----------|------|
+| `01-tue-adult-training-videos` | `adult_technical` | Adults | Technical, world-class detail, Cobrinha's championship pedigree — "the standard" |
+| `02-thu-kids-images` | `kids_confidence` | Parents of kids 4–12 | Warm, milestone-focused, safety-first — never sales-y |
+| `03-fri-adult-images` | `adult_lifestyle` | Adults | Magazine-quiet, 1–3 lines max, reflective — community and the "Cobrinha lifestyle" |
+| `04-sat-kids-training-videos` | `kids_summer` | Parents | Summer Camp angle — Beat the Heat (climate-controlled), Active Defense (anti-bullying), enrollment |
+
+---
 
 ## When to use
 
-- Called automatically by `produce-post` after the design draft is exported
-- Called standalone when Jeff wants to regenerate copy without touching the design ("redo the caption for Friday's draft")
-- Called when Jeff has a brief change ("the technique is actually de la Riva sweep, regenerate caption")
+- Called automatically by `produce-post` after the Canva design is saved
+- Jeff says "redo the caption for Friday," "regenerate hashtags for Saturday," or "new caption for Thursday"
+- Jeff provides a brief update ("the technique is de la Riva sweep — regenerate caption")
+
+---
 
 ## Inputs
 
-- **slot ID** — one of the four weekly slots
+- **slot ID** — one of the 4 slots above
 - **week** — defaults to current ISO week
-- **brief override** (optional) — if Jeff says "the technique is X" or "this is for the kids' first stripe ceremony," include that in the brief context
+- **brief override** (optional) — Jeff's extra context (technique name, event, milestone, etc.)
 
-The skill also reads:
-- `content/<week>/<slot>/brief.md` — context line(s) from leadership
-- `content/<week>/<slot>/drafts/draft.json` — for source asset metadata (Canva auto-tags etc.)
-- `brand/caption-pool.json` — voice principles, per-pillar tone notes + examples, hashtag pool
+Also reads:
+- `content/<week>/<slot>/brief.md` — context from Cobrinha/Dani; treat as authoritative
+- `content/<week>/<slot>/drafts/draft.json` — source asset metadata
+- `brand/caption-pool.json` — full voice rules, examples, hashtag pools
 
-## Pillar mapping
-
-Each slot maps to one pillar in `caption-pool.json`:
-
-| Slot | Pillar |
-|------|--------|
-| `01-tue-adult-training-videos` | `adult_technical` |
-| `02-thu-kids-images` | `kids_confidence` |
-| `03-fri-adult-images` | `adult_lifestyle` |
-| `04-sat-kids-training-videos` | `kids_summer` |
+---
 
 ## Step-by-step
 
 ### 1. Resolve context
 
-1. Read `caption-pool.json`. Get the pillar block for this slot.
-2. Read `brief.md` if present and non-empty. Treat it as authoritative — if it specifies a technique, person, or angle, use it.
-3. Read `draft.json` if present. Pull `source_asset.drive_file_name` (sometimes the filename hints at content) and any Canva smart_tags from the upload metadata.
+1. Read `brand/caption-pool.json`. Get the pillar block for this slot.
+2. Read `brief.md` if present. If it names a technique, person, or event — use it. Brief overrides everything.
+3. Read `draft.json` if present. Pull `drive_assets` filename hints if useful.
 
 ### 2. Compose the caption
 
-Follow the pillar's `tone_notes` and stay within `length_lines`. The `examples` array shows the target voice. Use the brief if it gives concrete content; otherwise stay general but specific (avoid generic "train hard, get better" filler).
+Use the pillar's `tone_notes` and stay within `length_lines`. Start from the W21 baseline examples below — adapt rather than invent from scratch.
 
-**Hard rules** (apply to every caption):
-- Sentence case. Never ALL CAPS.
-- One CTA maximum. None is fine. "Link in bio" or "DM us" only when the brief calls for it.
-- No emoji walls. One tasteful emoji at most, only when it adds something.
-- Don't invent specific facts (names, dates, achievements) the brief doesn't supply. If unsure, stay general.
-- End with a quiet sign-off when natural — `— Alliance Cobrinha LA` or one of the `voice.anchors` from the pool — not always required.
+**Alliance Cobrinha LA voice rules (hard):**
+- Clean, confident, never hype-y. No "crush it," "beast mode," "grind."
+- Sentence case only. Never ALL CAPS.
+- One CTA maximum — "DM us" or "Link in bio" only when the brief calls for it. Omitting CTA is fine.
+- No emoji walls. One emoji max, only when it genuinely adds to the message.
+- Never invent specific facts (names, dates, belt levels, competition results) the brief doesn't supply.
+- Short is always better: adult lifestyle = 1–3 lines; kids = 3–5 lines; technical = 2–4 lines.
+- If brief is thin, use the W21 baseline as the starting point and adapt minimally — ship a known-on-brand caption rather than over-engineer.
 
-If the brief is missing or thin, use one of the example captions from the pool as a starting point and adapt minimally — better to ship a known-on-brand caption than invent one from scratch.
+**W21 validated baseline captions (use as voice reference):**
+
+`kids_confidence`:
+```
+Today she earned her first stripe. Last month she was nervous to step on the mat.
+
+Kids BJJ at Alliance Cobrinha LA — ages 4–12. DM us for a free trial.
+```
+
+`adult_lifestyle`:
+```
+The work between the highlights.
+
+One team. One standard.
+```
+
+`kids_summer`:
+```
+Climate-controlled. Coach-led. The best place for kids when it's 100° outside.
+
+Summer Camp — ages 5–12. DM to enroll.
+```
 
 ### 3. Compose the hashtag set
 
-Follow the `_mix_recipe` in `caption-pool.json`:
+**Always include all 5 core tags:**
+```
+#AllianceCobrinha #AllianceCobrinhaLA #BJJ #JiuJitsu #BrazilianJiuJitsu
+```
 
-1. Include **all 5** from `hashtags.core`.
-2. Pick **4-6** from `hashtags.by_pillar.<this-pillar>`. Rotate which ones using `(week_number % len)` as the start index so consecutive weeks don't repeat exactly. For week 19 with a 9-item pillar pool: `start = 19 % 9 = 1`; pick items at indices `[1, 2, 3, 4, 5]`.
-3. Pick **2** from `hashtags.location` using the same rotation pattern.
-4. Pick **1-2** from `hashtags.rotating` using the same pattern.
+**Always include 2 location tags:**
+```
+#LosAngeles #BJJLA
+```
 
-Total: 12-15 tags. Lowercase the leading character of each in the output (`#bjjla`, not `#BJJLA`) — IG search is case-insensitive but lowercase reads cleaner. Wait — actually Alliance brand convention often uses CamelCase for readability (`#AllianceCobrinha`). Keep the casing as-stored in `caption-pool.json`.
+**Always include rotating closer:**
+```
+#TrainSmart
+```
 
-### 4. Save
+**Add 4–6 pillar-specific tags** (rotate using `week_number % pool_length` as start index):
+
+| Pillar | Tag pool |
+|--------|----------|
+| `kids_confidence` | `#KidsMartialArts` `#BJJKids` `#ConfidenceBuilding` `#AntiBullying` `#KidsJiuJitsu` `#MartialArtsKids` |
+| `adult_lifestyle` | `#BJJLove` `#OssBrother` `#LifeOnTheMat` `#BJJEveryDay` `#JiuJitsuLife` `#GrappleLife` |
+| `kids_summer` | `#SummerActivities` `#KidsMartialArts` `#FutureChampions` `#ActiveDefense` `#SummerCamp` `#KidsActivities` |
+| `adult_technical` | `#BJJTechnique` `#MartialArts` `#Grappling` `#BJJBlackBelt` `#Submission` `#TechnicalBJJ` |
+
+Example rotation for W21: `21 % 6 = 3` → start at index 3, pick 4 tags wrapping around if needed.
+
+Total target: **12–15 hashtags**.
+
+### 4. Save files
 
 Write `content/<week>/<slot>/drafts/caption.md`:
-
 ```markdown
-<!-- Generated by caption-library skill on <ISO datetime> -->
-<!-- Pillar: <pillar> | Brief used: <yes/no> -->
+<!-- caption-library · <ISO datetime> · Pillar: <pillar> · Brief: <yes/no> -->
 
-<the caption>
+<the caption text>
 ```
 
 Write `content/<week>/<slot>/drafts/hashtags.md`:
-
 ```markdown
-<!-- Generated by caption-library skill on <ISO datetime> -->
-<!-- Mix: 5 core + N pillar + 2 location + N rotating = M total -->
+<!-- caption-library · <ISO datetime> · Mix: 5 core + N pillar + 2 location + 1 rotating = M total -->
 
 #Tag1 #Tag2 #Tag3 ...
 ```
 
-Update `draft.json` to add a `caption` block:
-
+Update `draft.json` to add:
 ```json
-"caption": {
-  "generated_at": "<ISO datetime>",
-  "pillar": "<pillar>",
-  "brief_used": <true/false>,
-  "hashtag_count": <N>
-}
+"caption": "<caption text>",
+"hashtags": "<hashtag string>"
 ```
 
 ### 5. Report back
 
 ```
-✓ <slot> caption + hashtags ready
-  Pillar: <pillar>
-  Caption: "<first 60 chars>..."
-  Hashtags: <count> total
-  Files: content/<week>/<slot>/drafts/caption.md + hashtags.md
+✓ 03-fri-adult-images caption ready
+  Pillar: adult_lifestyle
+  Caption: "The work between the highlights...."
+  Hashtags: 12 total
+  Files: content/2026-W21/03-fri-adult-images/drafts/caption.md + hashtags.md
 ```
+
+---
 
 ## Failure modes
 
 | Failure | Action |
 |---------|--------|
-| `caption-pool.json` missing or malformed | Stop. Tell Jeff. The pool is required. |
-| `draft.json` missing | Continue without asset metadata. Use brief + pillar examples only. |
-| `brief.md` missing or empty | Continue. Use pillar examples as the base. |
-| Caption seems off-brand on review | Jeff can re-run this skill. The skill is idempotent — running again overwrites. |
+| `brand/caption-pool.json` missing | Stop. Tell Jeff — this file is required. |
+| `draft.json` missing | Continue without asset metadata. Use brief + pillar baseline. |
+| `brief.md` missing or empty | Continue. Use W21 baseline examples as starting point. |
+| Output feels off-brand | Jeff can re-run the skill — it's idempotent and overwrites the previous output. |
+
+---
 
 ## What this skill does NOT do
 
-- **Post to Instagram.** The caption + hashtags are saved to disk only.
-- **Touch the Canva design.** Caption goes in IG, not on the image.
+- **Post to Instagram.** Output is saved to disk only.
+- **Touch the Canva design.** Caption goes in the IG post, not on the image.
 - **Generate visual content.** That's `produce-post`.
-- **Guarantee the output is perfect.** It's a starting point for re-hash, like the design.
+- **Guarantee perfection.** It's a strong starting point for Jeff and Vinz to polish.
